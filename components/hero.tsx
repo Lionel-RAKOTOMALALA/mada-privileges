@@ -171,7 +171,14 @@ export function HeroSection() {
               <p className="text-4xl font-semibold tracking-tight text-background italic">
                 {stat.value}
               </p>
-              <p className="mt-2 max-w-[22ch] text-sm leading-relaxed text-background/70">
+              {/*
+                `mx-auto` est indispensable ici : `max-w-[22ch]` fait du
+                libellé une boîte plus étroite que sa cellule de grille, et
+                une boîte en bloc se cale à gauche. Le chiffre, lui, est
+                centré sur toute la largeur de la cellule — sans ça les deux
+                ne partagent pas le même axe.
+              */}
+              <p className="mx-auto mt-2 max-w-[22ch] text-sm leading-relaxed text-background/70">
                 {stat.label}
               </p>
             </div>
