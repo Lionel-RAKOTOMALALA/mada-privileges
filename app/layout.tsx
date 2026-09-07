@@ -3,6 +3,7 @@ import { ThemeProvider } from "next-themes";
 import { Gabarito, Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { SmoothScroll } from "@/components/motion/smooth-scroll";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -55,7 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <SmoothScroll>{children}</SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

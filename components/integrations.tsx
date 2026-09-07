@@ -26,7 +26,7 @@ export function Integrations() {
 				<FullWidthDivider className="-top-px" />
 
 				{/* Contenu */}
-				<div className="p-4 md:p-6">
+				<div className="p-4 md:p-6" data-animate="block">
 					<div className="space-y-5">
 						<h2 className="text-balance font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
 							Tout ce qui rythme votre ville, réuni ici

@@ -9,7 +9,10 @@ export function FaqsSection() {
   return (
     <section className="mx-auto max-w-5xl py-24 md:py-28" id="faq">
       <div className="mx-4 grid grid-cols-1 border md:mx-0 md:grid-cols-2 md:border-x">
-        <div className="space-y-4 px-4 pt-12 pb-10 md:border-r md:pl-10">
+        <div
+          className="space-y-4 px-4 pt-12 pb-10 md:border-r md:pl-10"
+          data-animate="heading"
+        >
           <h2 className="font-heading text-3xl font-semibold tracking-tight md:text-4xl">
             Vos questions, nos réponses
           </h2>
@@ -18,7 +21,7 @@ export function FaqsSection() {
             savoir avant de se lancer.
           </p>
         </div>
-        <div className="place-content-center">
+        <div className="place-content-center" data-animate="block">
           <Accordion className="rounded-none border-x-0">
             {questions.map((item) => (
               <AccordionItem className="px-4" key={item.id} value={item.id}>

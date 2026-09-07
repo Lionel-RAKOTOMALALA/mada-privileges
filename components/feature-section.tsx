@@ -13,7 +13,7 @@ export function FeatureSection() {
 	return (
 		<section className="relative bg-muted/40 py-24 md:py-28" id="programme">
 			<div className="mx-auto max-w-5xl px-4">
-				<div className="text-center">
+				<div className="text-center" data-animate="heading">
 					<h2 className="text-balance font-heading text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
 						Un cercle vertueux qui profite à tous
 					</h2>
@@ -50,7 +50,11 @@ export function FeatureSection() {
 
 					<div className="grid grid-cols-1 md:grid-cols-3">
 						{features.map((feature) => (
-							<div className="group relative p-8" key={feature.title}>
+							<div
+								className="group relative p-8"
+								data-animate="card"
+								key={feature.title}
+							>
 								<div className="flex size-11 items-center justify-center rounded-xl border border-border bg-card text-muted-foreground shadow-sm transition-transform duration-300 ease-out group-hover:-translate-y-0.5 [&_svg]:size-5 [&_svg]:stroke-width-1.5">
 									{feature.icon}
 								</div>

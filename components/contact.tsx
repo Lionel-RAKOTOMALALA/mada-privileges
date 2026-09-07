@@ -29,7 +29,10 @@ export function Contact() {
 			id="contact"
 		>
 			<div className="relative mx-auto max-w-5xl border-x px-0">
-				<div className="flex flex-col justify-center px-4 py-10 md:items-center md:py-14">
+				<div
+					className="flex flex-col justify-center px-4 py-10 md:items-center md:py-14"
+					data-animate="heading"
+				>
 					<h1 className="font-heading text-4xl font-semibold tracking-tight md:text-5xl">
 						Parlons de votre projet
 					</h1>
@@ -39,7 +42,7 @@ export function Contact() {
 					</p>
 				</div>
 				<FullWidthDivider contained />
-				<div className="grid md:grid-cols-3">
+				<div className="grid md:grid-cols-3" data-animate="block">
 					<Box
 						description="Nous répondons à tous les e-mails sous 24 heures."
 						icon={<Mail />}

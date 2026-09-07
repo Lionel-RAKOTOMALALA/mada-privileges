@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { ParallaxSection } from "gsap-animations-lionel";
 
 const cities = [
 	{
@@ -29,16 +30,31 @@ const cities = [
 
 export function Deployment() {
 	return (
-		<section className="relative py-24 md:py-28" id="deploiement">
+		/*
+		 * Seule section à passer par ParallaxSection : son contenu dérive
+		 * légèrement contre le fond de page pendant le défilement. Les autres
+		 * sections portent des filets et des décors en `absolute`, qui se
+		 * retrouveraient dans la couche mobile et dériveraient avec elle —
+		 * ici il n'y en a aucun. Le site n'ayant pas de photo, la couche
+		 * `bgImage` du composant n'a rien à porter : seul `contentSpeed` sert.
+		 */
+		<ParallaxSection
+			className="py-24 md:py-28"
+			contentSpeed={0.35}
+			id="deploiement"
+		>
 			<div className="mx-auto max-w-5xl px-4">
 				<div className="grid gap-10 md:grid-cols-[1fr_1.2fr] md:gap-14">
 					<div>
-						<h2 className="text-balance font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+						<h2
+							className="text-balance font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl"
+							data-animate="heading"
+						>
 							Quatre villes, une seule carte
 						</h2>
 					</div>
 
-					<div>
+					<div data-animate="block">
 						<p className="text-sm leading-relaxed text-muted-foreground md:text-base">
 							Le programme démarre à Antananarivo puis s&apos;étend
 							aux grandes villes du pays. Chaque enseigne rejoint le
@@ -52,6 +68,7 @@ export function Deployment() {
 					{cities.map((city) => (
 						<li
 							className="group flex flex-col gap-2 border-b border-border py-6 transition-colors sm:flex-row sm:items-center sm:gap-6"
+							data-animate="row"
 							key={city.name}
 						>
 							<h3 className="font-heading text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
@@ -94,6 +111,6 @@ export function Deployment() {
 					</a>
 				</p>
 			</div>
-		</section>
+		</ParallaxSection>
 	);
 }

@@ -19,7 +19,7 @@ export function HowItWorks() {
 	return (
 		<section className="relative py-24 md:py-28" id="fonctionnement">
 			<div className="mx-auto max-w-5xl px-4">
-				<div className="text-center">
+				<div className="text-center" data-animate="heading">
 					<h2 className="text-balance font-heading text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
 						Deux parcours, une même destination
 					</h2>
@@ -33,6 +33,7 @@ export function HowItWorks() {
 					{journeys.map((journey) => (
 						<div
 							className="relative border-t border-border md:border-r md:px-8 lg:px-10"
+							data-animate="card"
 							key={journey.id}
 						>
 							<div className="flex items-center justify-between gap-4 pt-8">

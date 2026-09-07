@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { FullWidthDivider } from "@/components/full-width-divider";
 import { Logo } from "@/components/logo";
+import { HeroReveal } from "@/components/motion/hero-reveal";
 import { ArrowRightIcon } from "lucide-react";
 
 const stats = [
@@ -33,12 +34,15 @@ export function HeroSection() {
         <div className="absolute inset-y-0 right-4 w-px bg-linear-to-b from-transparent via-background/20 to-transparent" />
       </div>
 
+      <HeroReveal />
+
       <div className="relative mx-auto flex max-w-5xl flex-col items-center px-4 pt-24 pb-20 text-center md:px-4 md:pt-32">
         <a
           className={cn(
             "group mx-auto flex w-fit items-center gap-3 rounded-sm border border-background/20 bg-background/5 p-1 backdrop-blur-sm",
             "transition-all duration-300 ease-out hover:border-background/40 hover:bg-background/10",
           )}
+          data-hero="badge"
           href="#programme"
         >
           <span className="flex items-center gap-1.5 rounded-xs bg-background/90 px-2 py-1 font-mono text-[10px] font-semibold tracking-widest text-foreground uppercase">
@@ -57,18 +61,27 @@ export function HeroSection() {
           </div>
         </a>
 
-        <h1 className="mt-8 max-w-3xl text-balance text-4xl leading-[1.06] font-light tracking-tight text-background md:text-6xl lg:text-7xl">
+        <h1
+          className="mt-8 max-w-3xl text-balance text-4xl leading-[1.06] font-light tracking-tight text-background md:text-6xl lg:text-7xl"
+          data-hero="title"
+        >
           Chaque client qui revient{" "}
           <em className="italic">vaut de l&apos;or.</em>
         </h1>
 
-        <p className="mt-6 max-w-xl text-balance text-sm leading-relaxed text-background/75 sm:text-base md:text-lg">
+        <p
+          className="mt-6 max-w-xl text-balance text-sm leading-relaxed text-background/75 sm:text-base md:text-lg"
+          data-hero="lede"
+        >
           Mada Privileges est la première plateforme nationale de fidélité
           multi-partenaires de Madagascar. Un seul compte, tous vos commerces
           préférés, des privilèges partout.
         </p>
 
-        <div className="mt-10 flex w-fit flex-wrap items-center justify-center gap-3">
+        <div
+          className="mt-10 flex w-fit flex-wrap items-center justify-center gap-3"
+          data-hero="actions"
+        >
           <Button
             size="lg"
             variant="secondary"
@@ -87,7 +100,10 @@ export function HeroSection() {
         </div>
 
         {/* Carte de fidélité */}
-        <div className="relative mb-12 mt-24 w-full max-w-md sm:mb-16">
+        <div
+          className="relative mb-12 mt-24 w-full max-w-md sm:mb-16"
+          data-hero="card"
+        >
           <div
             aria-hidden="true"
             className="absolute top-1/2 left-1/2 -z-1 size-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-background/10 blur-[90px]"
@@ -151,7 +167,7 @@ export function HeroSection() {
         {/* Chiffres-clés */}
         <div className="grid w-full max-w-3xl grid-cols-1 gap-8 border-t border-background/15 pt-10 sm:grid-cols-3 sm:gap-6">
           {stats.map((stat) => (
-            <div key={stat.value}>
+            <div data-hero="stat" key={stat.value}>
               <p className="text-4xl font-semibold tracking-tight text-background italic">
                 {stat.value}
               </p>

@@ -176,9 +176,11 @@
   * {
     @apply border-border outline-ring/50;
   }
-  html {
-    @apply scroll-smooth;
-  }
+  /*
+   * Pas de `scroll-smooth` ici : Lenis pilote le défilement et les deux se
+   * disputent le même scroll. Les ancres passent par Lenis — cf.
+   * components/motion/smooth-scroll.tsx.
+   */
   body {
     @apply bg-background text-foreground;
   }

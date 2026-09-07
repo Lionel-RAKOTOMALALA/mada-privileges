@@ -5,7 +5,10 @@ import { FullWidthDivider } from "@/components/full-width-divider";
 export function LogosSection() {
 	return (
 		<section className="py-16 md:py-20">
-			<div className="mx-auto max-w-5xl px-4 text-center">
+			<div
+				className="mx-auto max-w-5xl px-4 text-center"
+				data-animate="heading"
+			>
 				<h2 className="text-balance font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
 					Un réseau multi-secteurs, un seul compte
 				</h2>

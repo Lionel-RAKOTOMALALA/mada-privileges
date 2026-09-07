@@ -9,10 +9,13 @@ import { CtaSection } from "@/components/cta-section";
 import { FaqsSection } from "@/components/faqs-page";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
+import { ScrollReveal } from "@/components/motion/scroll-reveal";
 
 export default function Page() {
   return (
     <>
+      {/* Lie tous les `data-animate` de la page — cf. scroll-reveal.tsx. */}
+      <ScrollReveal />
       <main className="flex-1">
         <Header />
         <HeroSection />

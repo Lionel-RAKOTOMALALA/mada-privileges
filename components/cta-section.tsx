@@ -39,16 +39,25 @@ export function CtaSection() {
 					position="bottom-right"
 				/>
 
-				<h2 className="text-balance text-4xl leading-[1.05] font-light tracking-tight text-background md:text-6xl">
+				<h2
+					className="text-balance text-4xl leading-[1.05] font-light tracking-tight text-background md:text-6xl"
+					data-animate="heading"
+				>
 					Faites de vos clients vos ambassadeurs.
 				</h2>
-				<p className="mt-6 max-w-xl text-balance text-sm leading-relaxed text-background/75 md:text-lg">
+				<p
+					className="mt-6 max-w-xl text-balance text-sm leading-relaxed text-background/75 md:text-lg"
+					data-animate="block"
+				>
 					Rejoignez le réseau national qui transforme la fidélité en
 					levier de croissance. Une candidature simple, une équipe
 					locale, et la visibilité de toute la communauté.
 				</p>
 
-				<div className="mt-10 flex w-fit flex-wrap items-center justify-center gap-3">
+				<div
+					className="mt-10 flex w-fit flex-wrap items-center justify-center gap-3"
+					data-animate="block"
+				>
 					<Button
 						size="lg"
 						variant="secondary"
