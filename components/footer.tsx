@@ -1,10 +1,10 @@
 import { ThemeToggle } from "@/components/motion/theme-toggle";
 import { FullWidthDivider } from "@/components/full-width-divider";
-import Image from "next/image";
+import { Logo } from "@/components/logo";
 
 export function Footer() {
 	return (
-		<footer className="relative bg-foreground text-background">
+		<footer className="surface-invert relative bg-foreground text-background">
 			<FullWidthDivider
 				position="top"
 				style={{ backgroundColor: "rgba(255,255,255,0.18)" }}
@@ -12,14 +12,11 @@ export function Footer() {
 			<div className="mx-auto max-w-5xl px-4 py-16">
 				<div className="grid gap-10 md:grid-cols-6">
 					<div className="flex flex-col gap-4 md:col-span-3">
-						<a className="w-max text-background" href="#accueil">
-							<Image
-								src="/logo-mp.png"
-								alt="Mada Privileges"
-								width={321}
-								height={224}
-								className="h-9 w-auto"
-							/>
+						<a className="w-max" href="#accueil">
+							{/* Version verticale : la baseline y est plus petite que
+							    l'icône, il faut donc un peu plus de hauteur qu'avec
+							    le bloc horizontal pour qu'elle reste lisible. */}
+							<Logo className="h-14" orientation="vertical" />
 						</a>
 						<p className="max-w-sm text-balance text-sm leading-relaxed text-background/70">
 							La première plateforme nationale de fidélité

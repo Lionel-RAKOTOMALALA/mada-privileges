@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Gabarito, Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+
+/**
+ * Typo de la baseline du logotype selon la charte (« Typo baseline Gabarito »,
+ * Extra Bold pour MADA / Regular pour PRIVILÈGES). Reprise ici pour les titres
+ * afin que le site et la plateforme partagent la même voix typographique.
+ * Le logotype lui-même reste vectorisé — il ne dépend pas du chargement.
+ */
+const gabarito = Gabarito({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-gabarito",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         geistMono.variable,
         "font-sans",
         inter.variable,
+        gabarito.variable,
       )}
     >
       <body className="min-h-full flex flex-col">

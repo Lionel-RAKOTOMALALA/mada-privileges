@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { useScroll } from "@/hooks/use-scroll";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/mobile-nav";
-import Image from "next/image";
+import { Logo } from "@/components/logo";
 
 export const navLinks = [
   {
@@ -44,34 +44,17 @@ export function Header() {
           },
         )}
       >
+        {/*
+          Bloc-marque horizontal de la charte : la baseline y est calée sur la
+          base du « M » et large d'un « M » et demi. Ces rapports sont portés
+          par le tracé lui-même, d'où un seul SVG plutôt qu'une icône suivie
+          de texte — qui ne pouvait pas respecter l'alignement.
+        */}
         <a
-          className="flex h-fit w-max items-center text-primary rounded-md p-1.5"
+          className="flex h-fit w-max items-center rounded-md p-1.5"
           href="#accueil"
         >
-          <Image
-            src="/logo-mp.png"
-            alt="Mada Privileges"
-            width={321}
-            height={224}
-            priority
-            className={cn("h-7 w-auto")}
-          />
-          <span
-            className={cn(
-              "font-bold mx-1 pt-2",
-              scrolled ? "text-primary" : "text-foreground",
-            )}
-          >
-            MADA
-          </span>
-          <span
-            className={cn(
-              "pt-2",
-              scrolled ? "text-primary" : "text-foreground",
-            )}
-          >
-            PRIVILEGES
-          </span>
+          <Logo className="h-7" orientation="horizontal" />
         </a>
 
         <div className={cn("hidden items-center gap-1.5 md:flex")}>

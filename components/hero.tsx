@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { FullWidthDivider } from "@/components/full-width-divider";
-import Image from "next/image";
+import { Logo } from "@/components/logo";
 import { ArrowRightIcon } from "lucide-react";
 
 const stats = [
@@ -22,7 +22,7 @@ const stats = [
 export function HeroSection() {
   return (
     <section
-      className="relative overflow-hidden bg-foreground text-background"
+      className="surface-invert relative overflow-hidden bg-foreground text-background"
       id="accueil"
     >
       {/* Arrière-plan : grille + halo + filets verticaux */}
@@ -95,22 +95,16 @@ export function HeroSection() {
           <div className="relative -rotate-2 rounded-2xl bg-linear-to-br from-background/40 from-5% via-background/15 to-transparent p-px shadow-2xl shadow-black/40 transition-transform duration-700 ease-out hover:rotate-0 hover:scale-[1.01]">
             <div className="rounded-[calc(1rem-1px)] bg-foreground p-6 sm:p-8">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <Image
-                    src="/logo-mp.png"
-                    alt="Mada Privileges"
-                    width={321}
-                    height={224}
-                    className="h-9 w-auto"
-                  />
-                  <div className="text-left">
-                    <p className="font-heading text-lg leading-none font-semibold text-background">
-                      Mada Privileges
-                    </p>
-                    <p className="mt-1 font-mono text-[10px] tracking-[0.3em] text-background/50 uppercase">
-                      Loyalty Network
-                    </p>
-                  </div>
+                <div className="text-left">
+                  {/*
+                    Le bleu de l'icône tombe à 1,1:1 sur ce fond : illisible.
+                    Le ton vient de `.surface-invert` (or + écru ici, navy +
+                    ardoise quand la section s'éclaircit en thème sombre).
+                  */}
+                  <Logo className="h-9" orientation="horizontal" />
+                  <p className="mt-2 font-mono text-[10px] tracking-[0.3em] text-background/50 uppercase">
+                    Loyalty Network
+                  </p>
                 </div>
                 <span className="rounded-full border border-background/30 bg-background/10 px-3 py-1 font-mono text-[10px] font-semibold tracking-widest text-background uppercase">
                   Membre

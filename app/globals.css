@@ -8,7 +8,18 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
+  --font-heading: var(--font-gabarito);
   --font-mono: var(--font-geist-mono);
+
+  /* Charte Mada Privilèges — gamme de tons (cf. « Charte ok MP vect.pdf ») */
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-or: var(--brand-or);
+  --color-brand-ocre: var(--brand-ocre);
+  --color-brand-bordeaux: var(--brand-bordeaux);
+  --color-brand-ecru: var(--brand-ecru);
+  --color-brand-taupe: var(--brand-taupe);
+  --color-brand-ardoise: var(--brand-ardoise);
+  --color-brand-encre: var(--brand-encre);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -48,13 +59,39 @@
 }
 
 :root {
+  /*
+   * Charte graphique Mada Privilèges.
+   * Tons relevés dans « Charte ok MP vect.pdf » (quadri) et convertis en sRGB.
+   * Le bleu est celui du fichier logo d'origine, les autres viennent de la
+   * gamme imposée par la charte. Ce bloc est la référence commune au site
+   * et à la plateforme : ne pas introduire de couleur hors de cette gamme.
+   */
+  --brand-navy: #083342;
+  --brand-or: #c3a546;
+  --brand-ocre: #ae8e58;
+  --brand-bordeaux: #802e32;
+  --brand-ecru: #e9e0cc;
+  --brand-taupe: #9d8d7b;
+  --brand-ardoise: #3d4948;
+  --brand-encre: #1b231e;
+
+  /*
+   * Encre du logotype, héritée par tout le sous-arbre. Le logotype ne choisit
+   * pas sa couleur : c'est la surface qui la pose, parce qu'elle seule sait
+   * si elle est claire ou sombre. Sur fond sombre le bleu de l'icône tombe à
+   * 1,1:1 — illisible — et la charte autorise alors l'or ou l'écru.
+   * `--logo-accent` ne concerne que « PRIVILÈGES », seule partie du bloc dont
+   * la charte laisse la couleur libre.
+   */
+  --logo-ink: var(--brand-navy);
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(25.636% 0.04704 221.051);
+  --primary: var(--brand-navy);
   --primary-foreground: oklch(0.984 0.019 200.873);
   --secondary: oklch(0.967 0.001 286.375);
   --secondary-foreground: oklch(0.21 0.006 285.885);
@@ -83,13 +120,15 @@
 }
 
 .dark {
+  --logo-ink: var(--brand-ecru);
+
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(25.636% 0.04704 221.051);
+  --primary: var(--brand-navy);
   --primary-foreground: oklch(0.984 0.019 200.873);
   --secondary: oklch(0.274 0.006 286.033);
   --secondary-foreground: oklch(0.985 0 0);
@@ -114,6 +153,23 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+/*
+ * Sections peintes en `bg-foreground` (hero, carte de fidélité, footer) :
+ * elles s'inversent avec le thème — sombres en thème clair, claires en thème
+ * sombre. Le logotype doit donc s'inverser avec elles, et non suivre le thème.
+ * Ratios de contraste : or 6,3:1 et écru 11,5:1 sur le fond sombre, navy
+ * 13,4:1 et ardoise 9,3:1 sur le fond clair.
+ */
+.surface-invert {
+  --logo-ink: var(--brand-or);
+  --logo-accent: var(--brand-ecru);
+}
+
+.dark .surface-invert {
+  --logo-ink: var(--brand-navy);
+  --logo-accent: var(--brand-ardoise);
 }
 
 @layer base {
