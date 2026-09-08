@@ -76,27 +76,32 @@ export function Partners() {
 				</div>
 
 				{/*
-					Les arguments sont posés dans des cartes, comme les formats et
-					les coordonnées : c'est le vocabulaire déjà employé ailleurs sur
-					la page. Ils étaient auparavant séparés par des traits dorés qui,
-					ajoutés au filet du groupe, chargeaient la zone sans structurer.
+					Pas de cartes ici. La page en compte déjà là où elles disent
+					quelque chose — le portefeuille du hero et les quatre formats
+					montrent des cartes de fidélité, le bloc contact reprend un
+					traitement demandé. Quatre arguments de vente n'en sont pas :
+					ils sont tenus par la pastille dorée et l'écart, pas par une
+					boîte. Pastille ronde et cerclée, pour ne pas répéter non plus
+					le carré plein des cartes.
 				*/}
-				<ul className="mt-14 grid gap-4 md:grid-cols-2">
+				<ul className="mt-14 grid gap-x-14 gap-y-12 md:grid-cols-2">
 					{benefits.map((benefit) => (
 						<li
-							className="flex flex-col gap-4 rounded-xl border border-background/15 bg-background/5 p-6 transition-colors hover:border-background/30 hover:bg-background/10"
+							className="flex gap-5"
 							data-animate="card"
 							key={benefit.title}
 						>
-							<span className="flex size-10 items-center justify-center rounded-lg bg-background/10 text-surface-accent [&_svg]:size-5 [&_svg]:stroke-[1.5]">
+							<span className="mt-0.5 flex size-11 shrink-0 items-center justify-center rounded-full border border-surface-accent/40 text-surface-accent [&_svg]:size-5 [&_svg]:stroke-[1.5]">
 								{benefit.icon}
 							</span>
-							<h3 className="font-heading text-lg font-semibold tracking-tight text-background">
-								{benefit.title}
-							</h3>
-							<p className="text-sm leading-relaxed text-background/70">
-								{benefit.description}
-							</p>
+							<div className="min-w-0">
+								<h3 className="font-heading text-lg font-semibold tracking-tight text-background">
+									{benefit.title}
+								</h3>
+								<p className="mt-2 text-sm leading-relaxed text-background/70">
+									{benefit.description}
+								</p>
+							</div>
 						</li>
 					))}
 				</ul>
