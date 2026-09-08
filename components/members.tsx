@@ -43,10 +43,16 @@ export function Members() {
 					</h2>
 				</div>
 
+				{/*
+					Retrait symétrique de part et d'autre du filet : chaque cellule
+					n'avait qu'un padding à droite, donc les colonnes 2 et 3 avaient
+					leur texte collé au filet qui les précède. Les bords extérieurs
+					restent alignés sur le titre — d'où `first:pl-0` et `last:pr-0`.
+				*/}
 				<ol className="mt-12 grid gap-px border-t border-border md:grid-cols-3">
 					{steps.map((step) => (
 						<li
-							className="flex flex-col gap-3 border-b border-border py-8 md:border-r md:pr-8 md:last:border-r-0"
+							className="flex flex-col gap-3 border-b border-border py-8 md:border-r md:px-8 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
 							data-animate="card"
 							key={step.number}
 						>
