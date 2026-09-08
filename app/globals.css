@@ -14,11 +14,12 @@
   /* Charte Mada Privilèges — gamme de tons (cf. « Charte ok MP vect.pdf ») */
   --color-brand-navy: var(--brand-navy);
   --color-brand-or: var(--brand-or);
-  --color-brand-or-clair: var(--brand-or-clair);
   --color-brand-alerte: var(--brand-alerte);
   /* Rôles portés par la surface — cf. .surface-invert */
   --color-surface-accent: var(--surface-accent);
   --color-surface-alerte: var(--surface-alerte);
+  --color-surface-action: var(--surface-action);
+  --color-surface-action-ink: var(--surface-action-ink);
   --color-brand-ocre: var(--brand-ocre);
   --color-brand-bordeaux: var(--brand-bordeaux);
   --color-brand-ecru: var(--brand-ecru);
@@ -81,13 +82,10 @@
   --brand-encre: #1b231e;
 
   /*
-   * Tons clairs dérivés de la gamme, pour les surfaces bleues (section
-   * Contact). Sur ce fond l'or de base tient (5,6:1), mais l'ocre passe sous
-   * le seuil en survol de bouton et le bordeaux tombe à 1,4:1. On monte la
-   * clarté en gardant la teinte exacte du ton d'origine — c'est le principe
-   * des dégradés de la charte, pas une couleur nouvelle.
+   * Ton clair dérivé de la gamme : sur fond sombre le bordeaux tombe à 1,4:1
+   * et ne signale plus rien. On monte la clarté en gardant sa teinte exacte —
+   * c'est le principe des dégradés de la charte, pas une couleur nouvelle.
    */
-  --brand-or-clair: oklch(82% 0.115 91.62); /* or éclairci — survol */
   --brand-alerte: oklch(78% 0.12 20.54); /* bordeaux éclairci — erreurs */
 
   /*
@@ -109,6 +107,14 @@
    */
   --surface-accent: var(--brand-ocre);
   --surface-alerte: var(--brand-bordeaux);
+
+  /*
+   * Aplat d'action — même principe que l'encre du logotype : c'est la surface
+   * qui pose la paire fond/libellé. Sur fond clair, l'or ne détache le bouton
+   * qu'à 2,4:1 : c'est le bleu qui porte l'aplat, avec un libellé écru.
+   */
+  --surface-action: var(--brand-navy);
+  --surface-action-ink: var(--brand-ecru);
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -149,6 +155,9 @@
   /* Fond sombre : l'or reprend sa place (6,3:1) et l'alerte s'éclaircit. */
   --surface-accent: var(--brand-or);
   --surface-alerte: var(--brand-alerte);
+  /* Fond sombre : le bleu y disparaît (1,1:1), l'or porte l'aplat. */
+  --surface-action: var(--brand-or);
+  --surface-action-ink: var(--brand-navy);
 
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -196,6 +205,8 @@
   /* Fond sombre ici, donc l'inverse de la surface courante. */
   --surface-accent: var(--brand-or);
   --surface-alerte: var(--brand-alerte);
+  --surface-action: var(--brand-or);
+  --surface-action-ink: var(--brand-navy);
 }
 
 .dark .surface-invert {
@@ -204,6 +215,8 @@
   /* La surface s'éclaircit : on repasse aux tons foncés de la gamme. */
   --surface-accent: var(--brand-ocre);
   --surface-alerte: var(--brand-bordeaux);
+  --surface-action: var(--brand-navy);
+  --surface-action-ink: var(--brand-ecru);
 }
 
 @layer base {

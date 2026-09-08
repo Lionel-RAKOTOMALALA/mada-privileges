@@ -236,12 +236,21 @@ export function ContactForm() {
 				)}
 			</div>
 
+			{/*
+				Aplat et libellé viennent du rôle posé par la surface, comme
+				l'encre du logotype : bleu sur libellé écru en thème clair, or
+				sur libellé bleu en thème sombre. Un or figé ne détachait le
+				bouton qu'à 2,4:1 du fond clair.
+				Le survol éclaircit l'aplat quel qu'il soit, plutôt que de viser
+				une couleur précise qui ne conviendrait qu'à l'un des deux.
+			*/}
 			<button
 				className={cn(
 					"mt-1 inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg",
-					"bg-brand-or text-sm font-semibold text-brand-navy transition-colors",
-					"hover:bg-brand-or-clair focus-visible:outline-none focus-visible:ring-2",
-					"focus-visible:ring-brand-or/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+					"bg-surface-action text-sm font-semibold text-surface-action-ink transition-colors",
+					"hover:bg-[color-mix(in_oklab,var(--surface-action),white_14%)]",
+					"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-surface-action/50",
+					"focus-visible:ring-offset-2 focus-visible:ring-offset-background",
 					"disabled:cursor-not-allowed disabled:opacity-60"
 				)}
 				disabled={pending}
