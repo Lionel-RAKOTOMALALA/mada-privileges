@@ -14,6 +14,11 @@
   /* Charte Mada Privilèges — gamme de tons (cf. « Charte ok MP vect.pdf ») */
   --color-brand-navy: var(--brand-navy);
   --color-brand-or: var(--brand-or);
+  --color-brand-or-clair: var(--brand-or-clair);
+  --color-brand-alerte: var(--brand-alerte);
+  /* Rôles portés par la surface — cf. .surface-invert */
+  --color-surface-accent: var(--surface-accent);
+  --color-surface-alerte: var(--surface-alerte);
   --color-brand-ocre: var(--brand-ocre);
   --color-brand-bordeaux: var(--brand-bordeaux);
   --color-brand-ecru: var(--brand-ecru);
@@ -76,6 +81,16 @@
   --brand-encre: #1b231e;
 
   /*
+   * Tons clairs dérivés de la gamme, pour les surfaces bleues (section
+   * Contact). Sur ce fond l'or de base tient (5,6:1), mais l'ocre passe sous
+   * le seuil en survol de bouton et le bordeaux tombe à 1,4:1. On monte la
+   * clarté en gardant la teinte exacte du ton d'origine — c'est le principe
+   * des dégradés de la charte, pas une couleur nouvelle.
+   */
+  --brand-or-clair: oklch(82% 0.115 91.62); /* or éclairci — survol */
+  --brand-alerte: oklch(78% 0.12 20.54); /* bordeaux éclairci — erreurs */
+
+  /*
    * Encre du logotype, héritée par tout le sous-arbre. Le logotype ne choisit
    * pas sa couleur : c'est la surface qui la pose, parce qu'elle seule sait
    * si elle est claire ou sombre. Sur fond sombre le bleu de l'icône tombe à
@@ -84,6 +99,16 @@
    * la charte laisse la couleur libre.
    */
   --logo-ink: var(--brand-navy);
+
+  /*
+   * Accent et alerte de la surface courante — même principe que l'encre du
+   * logotype : c'est la surface qui les pose, parce qu'elle seule sait si
+   * elle est claire ou sombre. Ici le fond est clair, donc l'or (2,4:1) est
+   * hors jeu : on prend l'ocre, son ton foncé dans la gamme, qui passe le
+   * seuil du grand texte. L'alerte reste le bordeaux, sans ambiguïté.
+   */
+  --surface-accent: var(--brand-ocre);
+  --surface-alerte: var(--brand-bordeaux);
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -121,6 +146,9 @@
 
 .dark {
   --logo-ink: var(--brand-ecru);
+  /* Fond sombre : l'or reprend sa place (6,3:1) et l'alerte s'éclaircit. */
+  --surface-accent: var(--brand-or);
+  --surface-alerte: var(--brand-alerte);
 
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -165,11 +193,17 @@
 .surface-invert {
   --logo-ink: var(--brand-or);
   --logo-accent: var(--brand-ecru);
+  /* Fond sombre ici, donc l'inverse de la surface courante. */
+  --surface-accent: var(--brand-or);
+  --surface-alerte: var(--brand-alerte);
 }
 
 .dark .surface-invert {
   --logo-ink: var(--brand-navy);
   --logo-accent: var(--brand-ardoise);
+  /* La surface s'éclaircit : on repasse aux tons foncés de la gamme. */
+  --surface-accent: var(--brand-ocre);
+  --surface-alerte: var(--brand-bordeaux);
 }
 
 @layer base {

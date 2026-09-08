@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Link from "next/link";
 
 export function FaqsSection() {
   return (
@@ -17,12 +18,16 @@ export function FaqsSection() {
             Vos questions, nos réponses
           </h2>
           <p className="text-muted-foreground">
-            Programme, adhésion, villes couvertes : tout ce qu&apos;il faut
-            savoir avant de se lancer.
+            Gratuité, fonctionnement des cartes, adhésion des enseignes : tout ce
+            qu&apos;il faut savoir avant de se lancer.
           </p>
         </div>
         <div className="place-content-center" data-animate="block">
-          <Accordion className="rounded-none border-x-0">
+          {/* Première question ouverte par défaut (cahier de contenu, § 5.9). */}
+          <Accordion
+            className="rounded-none border-x-0"
+            defaultValue={["item-1"]}
+          >
             {questions.map((item) => (
               <AccordionItem className="px-4" key={item.id} value={item.id}>
                 <AccordionTrigger className="py-4 font-medium hover:no-underline focus-visible:ring-ring">
@@ -38,9 +43,9 @@ export function FaqsSection() {
         <div className="flex h-14 items-center justify-center border-t md:col-span-2">
           <p className="text-muted-foreground">
             Une autre question ?{" "}
-            <a className="font-medium text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground" href="#contact">
+            <Link className="font-medium text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground" href="/#contact">
               Écrivez-nous
-            </a>
+            </Link>
           </p>
         </div>
       </div>
@@ -51,44 +56,46 @@ export function FaqsSection() {
 const questions = [
   {
     id: "item-1",
-    title: "Comment fonctionne Mada Privileges ?",
+    title: "Mada Privilèges, c'est payant ?",
     content:
-      "Un programme unique de fidélité multi-partenaires. En tant que membre, vous cumulez des points chez toutes les enseignes du réseau et les échangez contre des privilèges. En tant qu'enseigne, vous gagnez en visibilité et fidélisez vos clients.",
+      "Non. La création de compte et l'usage des cartes sont gratuits pour les membres, sans abonnement ni engagement. Ce sont les enseignes qui souscrivent au service pour animer leur programme.",
   },
   {
+    // La question la plus posée : le cahier demande qu'elle soit traitée
+    // explicitement, le site ne devant jamais suggérer un cumul commun.
     id: "item-2",
-    title: "Combien coûte l'adhésion ?",
+    title: "Mes points sont-ils valables chez tous les commerçants ?",
     content:
-      "L'inscription est gratuite et sans engagement pour les membres. Pour les enseignes, les conditions sont simples : contactez-nous, nous étudions votre dossier sous 72 heures et vous accompagnons pas à pas lors de l'installation.",
+      "Non, et c'est important : chaque enseigne gère son propre programme. Les points ou tampons obtenus chez un commerçant s'utilisent chez lui uniquement. Ce que Mada Privilèges vous apporte, c'est de retrouver toutes vos cartes au même endroit, au lieu d'en perdre la moitié.",
   },
   {
     id: "item-3",
-    title: "Comment les points sont-ils cumulés ?",
+    title: "Faut-il installer une application ?",
     content:
-      "À chaque passage en caisse, présentez votre QR code (via l'application ou un SMS/USSD) : le commerçant valide en deux secondes et vos points sont crédités immédiatement. Zéro friction, zéro carte à plastiquer.",
+      "Non. La plateforme fonctionne dans votre navigateur, sur téléphone comme sur ordinateur. Vous pouvez l'ajouter à votre écran d'accueil pour y accéder comme à une application, et vos cartes restent consultables même sans connexion.",
   },
   {
     id: "item-4",
-    title: "Comment mon enseigne est-elle référencée ?",
+    title: "Comment ajouter la carte d'un commerçant ?",
     content:
-      "Une fois adhérente, vous publiez votre fiche et vos offres. Votre enseigne apparaît alors dans les recherches géolocalisées de tous les membres, près de chez eux comme à l'autre bout de la ville.",
+      "En scannant le QR code affiché dans son établissement. La carte s'ajoute automatiquement à votre portefeuille, sans saisie.",
   },
   {
     id: "item-5",
-    title: "Quelles villes sont couvertes ?",
+    title: "Je suis commerçant : comment rejoindre le réseau ?",
     content:
-      "Le programme démarre à Antananarivo et s'étend à Toamasina, Mahajanga et Antsirabe en 2027. Chaque enseigne rejoint le réseau là où elle opère.",
+      "Vous créez votre espace partenaire en ligne, vous configurez votre programme — mécanique, seuil, récompense — puis vous affichez votre QR code au comptoir. Aucune intégration technique n'est nécessaire. Notre équipe peut vous accompagner à la mise en place.",
   },
   {
     id: "item-6",
-    title: "Qui porte la plateforme ?",
+    title: "Le service est-il disponible en dehors d'Antananarivo ?",
     content:
-      "Mada Privileges est conçu et opéré par EDS Group, cabinet de transformation digitale basé à Antananarivo, reconnu en cybersécurité et organisateur du salon national CIRT-MDG.",
+      "Oui. Toute enseigne peut créer son programme, où qu'elle se trouve à Madagascar, et ses clients y accèdent immédiatement. Le réseau est simplement plus dense dans la capitale à ce stade.",
   },
   {
     id: "item-7",
-    title: "Comment commencer ?",
+    title: "Que deviennent mes données personnelles ?",
     content:
-      "Membres : inscrivez-vous gratuitement en moins de deux minutes. Enseignes : candidatez comme partenaire — notre équipe vous recontacte sous 72 heures.",
+      "Elles servent uniquement à gérer votre compte et vos cartes. Elles ne sont ni revendues ni cédées à des tiers. Le détail figure dans notre politique de confidentialité.",
   },
 ];

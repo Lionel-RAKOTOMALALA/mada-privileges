@@ -36,10 +36,18 @@ function AnchorScroll() {
 			}
 
 			const from = event.target instanceof Element ? event.target : null;
-			const anchor = from?.closest('a[href^="#"]') as HTMLAnchorElement | null;
+			const anchor = from?.closest("a[href]") as HTMLAnchorElement | null;
 			if (!anchor) return;
 
-			const hash = anchor.getAttribute("href");
+			// Les liens de navigation s'écrivent « /#section » pour rester
+			// valables depuis les pages annexes. On n'intercepte donc pas les
+			// seuls href commençant par « # », mais tout lien qui vise une
+			// ancre de la page courante — ailleurs, on laisse le navigateur
+			// changer de page.
+			const url = new URL(anchor.href, window.location.href);
+			if (url.origin !== window.location.origin) return;
+			if (url.pathname !== window.location.pathname) return;
+			const hash = url.hash;
 			if (!hash || hash === "#") return;
 
 			const target = document.querySelector(hash);
@@ -60,8 +68,16 @@ function AnchorScroll() {
 			});
 		};
 
-		document.addEventListener("click", onClick);
-		return () => document.removeEventListener("click", onClick);
+		/*
+		 * Phase de capture : les liens de navigation sont des <Link> Next, dont
+		 * le gestionnaire est posé sur l'élément. En capture, celui-ci passe
+		 * avant, et `Link` renonce à naviguer quand il voit `defaultPrevented`
+		 * — sinon il ferait son propre saut avant l'animation de Lenis.
+		 * On ne coupe pas la propagation pour autant : le menu mobile a besoin
+		 * de recevoir le clic pour se refermer.
+		 */
+		document.addEventListener("click", onClick, true);
+		return () => document.removeEventListener("click", onClick, true);
 	}, [lenisRef]);
 
 	return null;

@@ -1,153 +1,130 @@
-import { cn } from "@/lib/utils";
 import type React from "react";
-import { InstagramIcon } from "@/components/icons/instagram-icon";
-import { XIcon } from "@/components/icons/x-icon";
-import { FullWidthDivider } from "@/components/full-width-divider";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { ContactForm } from "@/components/contact-form";
+import { CONTACT_EMAIL } from "@/lib/links";
+import { ChevronRight, Mail, MapPin, Phone } from "lucide-react";
 
-const APP_EMAIL = "contact@madaprivileges.mg";
-const APP_PHONE = "+261 34 05 000 00";
-const APP_PHONE_2 = "+261 20 22 000 00";
+/** Coordonnée que EDS doit fournir avant la mise en ligne (§ 9). */
+const TO_BE_PROVIDED = "À compléter";
+
+type Channel = {
+	icon: React.ReactNode;
+	label: string;
+	href?: string;
+	value: React.ReactNode;
+	hint: string;
+};
+
+/**
+ * Trois blocs de coordonnées (cahier de contenu, § 5.10).
+ *
+ * Les numéros et l'adresse de la maquette (« +261 34 05 000 00 », « Lot II
+ * K 47 ») étaient des exemples que le cahier interdit explicitement d'envoyer
+ * en production. Ils sont remplacés par un marqueur visible : mieux vaut un
+ * champ manifestement vide qu'une coordonnée plausible mais fausse, qu'on
+ * oublierait de corriger.
+ */
+const channels: Channel[] = [
+	{
+		icon: <Mail />,
+		label: "E-mail",
+		href: `mailto:${CONTACT_EMAIL}`,
+		value: CONTACT_EMAIL,
+		hint: "Réponse sous 48 heures ouvrées.",
+	},
+	{
+		icon: <MapPin />,
+		label: "Bureau",
+		value: TO_BE_PROVIDED,
+		hint: "EDS Group, Antananarivo — adresse postale à fournir.",
+	},
+	{
+		icon: <Phone />,
+		label: "Téléphone",
+		value: TO_BE_PROVIDED,
+		hint: "Du lundi au vendredi, 8h – 17h.",
+	},
+];
+
+const cardClass =
+	"flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-3.5";
 
 export function Contact() {
-	const socialLinks = [
-		{
-			icon: <InstagramIcon className="size-3.5 text-muted-foreground" />,
-			href: "#",
-			label: "Instagram",
-		},
-		{
-			icon: <XIcon className="size-3.5 text-muted-foreground" />,
-			href: "#",
-			label: "X (Twitter)",
-		},
-	];
-
 	return (
-		<section
-			className="relative bg-muted/40 py-24 md:py-28"
-			id="contact"
-		>
-			<div className="relative mx-auto max-w-5xl border-x px-0">
-				<div
-					className="flex flex-col justify-center px-4 py-10 md:items-center md:py-14"
-					data-animate="heading"
-				>
-					<h1 className="font-heading text-4xl font-semibold tracking-tight md:text-5xl">
-						Parlons de votre projet
-					</h1>
-					<p className="mt-4 max-w-md text-base text-muted-foreground">
-						Une question sur le programme ? Notre équipe basée à
-						Antananarivo vous répond sous 24 heures.
-					</p>
-				</div>
-				<FullWidthDivider contained />
-				<div className="grid md:grid-cols-3" data-animate="block">
-					<Box
-						description="Nous répondons à tous les e-mails sous 24 heures."
-						icon={<Mail />}
-						title="E-mail"
-					>
-						<a
-							className="font-mono text-sm font-medium tracking-wide hover:underline"
-							href={`mailto:${APP_EMAIL}`}
-						>
-							{APP_EMAIL}
-						</a>
-					</Box>
-					<Box
-						description="EDS Group · Lot II K 47, Antananarivo"
-						icon={<MapPin />}
-						title="Bureau"
-					>
-						<span className="font-mono text-sm font-medium tracking-wide">
-							Antananarivo, Madagascar
-						</span>
-					</Box>
-					<Box
-						className="border-b-0 md:border-r-0"
-						description="Du lundi au vendredi, 8h–17h."
-						icon={<Phone />}
-						title="Téléphone"
-					>
-						<div>
-							<a
-								className="block font-mono text-sm font-medium tracking-wide hover:underline"
-								href={`tel:${APP_PHONE}`}
-							>
-								{APP_PHONE}
-							</a>
-							<a
-								className="block font-mono text-sm font-medium tracking-wide hover:underline"
-								href={`tel:${APP_PHONE_2}`}
-							>
-								{APP_PHONE_2}
-							</a>
+		/*
+		 * Surface courante, comme la FAQ ou les secteurs : la section suit le
+		 * thème au lieu de s'y opposer. Les couleurs viennent donc des tokens
+		 * de thème, et l'accent du rôle `--surface-accent` que la surface pose
+		 * — l'or ne tient pas sur fond clair, c'est l'ocre qui prend le relais.
+		 */
+		<section className="relative bg-muted/40 py-24 md:py-28" id="contact">
+			<div className="mx-auto max-w-5xl px-4">
+				<div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+					<div>
+						<div data-animate="heading">
+							<h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+								Une question ?{" "}
+								<span className="text-surface-accent">Écrivez-nous.</span>
+							</h2>
+							<p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground md:text-base">
+								Notre équipe est basée à Antananarivo et répond sous 48
+								heures ouvrées.
+							</p>
 						</div>
-					</Box>
-				</div>
-				<FullWidthDivider contained />
-				<div className="z-1 flex flex-col items-center justify-center gap-4 py-16">
-					<h2 className="font-heading text-center text-2xl font-semibold tracking-tight md:text-3xl">
-						Suivez le réseau de plus près
-					</h2>
-					<div className="flex flex-wrap items-center gap-2">
-						{socialLinks.map((link) => (
-							<a
-								className="flex items-center gap-x-2 rounded-full border bg-card px-3 py-1.5 shadow hover:bg-accent"
-								href={link.href}
-								key={link.label}
-								rel="noopener noreferrer"
-								target="_blank"
-							>
-								{link.icon}
-								<span className="font-mono text-xs font-medium tracking-wide">
-									{link.label}
-								</span>
-							</a>
-						))}
+
+						<div className="mt-8 flex flex-col gap-3">
+							{channels.map((channel) => {
+								const inner = (
+									<>
+										<span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground [&_svg]:size-4 [&_svg]:stroke-1">
+											{channel.icon}
+										</span>
+										{/* min-w-0 : sans ça une adresse longue élargit
+										    la carte au lieu de passer à la ligne. */}
+										<div className="min-w-0 flex-1">
+											<p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+												{channel.label}
+											</p>
+											<div className="mt-0.5 text-sm font-semibold break-words text-foreground">
+												{channel.value}
+											</div>
+											<p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+												{channel.hint}
+											</p>
+										</div>
+									</>
+								);
+
+								// Sans `href` : rendu en <div>, sans chevron. Un chevron
+								// sur un élément qui ne mène nulle part promet une action
+								// qui n'existe pas.
+								return channel.href ? (
+									<a
+										className={`${cardClass} group transition-colors hover:border-surface-accent/50 hover:bg-accent`}
+										data-animate="row"
+										href={channel.href}
+										key={channel.label}
+									>
+										{inner}
+										<ChevronRight className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
+									</a>
+								) : (
+									<div
+										className={`${cardClass} opacity-70`}
+										data-animate="row"
+										key={channel.label}
+									>
+										{inner}
+									</div>
+								);
+							})}
+						</div>
+					</div>
+
+					<div data-animate="block">
+						<ContactForm />
 					</div>
 				</div>
 			</div>
 		</section>
-	);
-}
-
-type ContactBox = React.ComponentProps<"div"> & {
-	icon: React.ReactNode;
-	title: string;
-	description: string;
-};
-
-function Box({
-	title,
-	description,
-	className,
-	children,
-	...props
-}: ContactBox) {
-	return (
-		<div
-			className={cn(
-				"flex flex-col justify-between border-b md:border-r md:border-b-0",
-				className
-			)}
-		>
-			<div
-				className={cn(
-					"flex items-center gap-x-3 border-b bg-card/60 p-4",
-					"[&_svg]:size-5 [&_svg]:stroke-width-1 [&_svg]:text-muted-foreground"
-				)}
-			>
-				{props.icon}
-				<h2 className="font-heading text-lg font-medium tracking-wider">
-					{title}
-				</h2>
-			</div>
-			<div className="flex items-center gap-x-2 p-4 py-12">{children}</div>
-			<div className="border-t p-4">
-				<p className="text-sm text-muted-foreground">{description}</p>
-			</div>
-		</div>
 	);
 }

@@ -1,20 +1,13 @@
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
+import { sectors } from "@/lib/sectors";
 
-const sectors = [
-	"Restauration",
-	"Mode & beauté",
-	"Hôtellerie & santé",
-	"Commerces de proximité",
-	"Grande distribution",
-	"Banques & fintech",
-	"Télécom & médias",
-];
+
 
 export function LogoCloud() {
 	return (
 		<div className="mask-[linear-gradient(to_right,transparent,black_12%,black_88%,transparent)] overflow-hidden py-8">
 			<InfiniteSlider gap={56} speed={70} speedOnHover={25}>
-				{sectors.map((sector) => (
+				{sectors.map(({ name: sector }) => (
 					<span
 						className="flex items-center gap-14"
 						key={sector}

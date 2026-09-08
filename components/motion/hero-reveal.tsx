@@ -49,13 +49,6 @@ export function HeroReveal() {
 			duration: 1.1,
 			position: "-=0.55",
 		},
-		{
-			selector: '[data-hero="stat"]',
-			from: { opacity: 0, y: 20 },
-			to: { opacity: 1, y: 0, stagger: 0.09 },
-			duration: 0.7,
-			position: "-=0.7",
-		},
 	]);
 
 	return null;

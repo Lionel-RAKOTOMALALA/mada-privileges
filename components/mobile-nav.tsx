@@ -10,12 +10,9 @@ import {
 import { Portal } from "@/components/portal";
 import { Button } from "@/components/ui/button";
 import { navLinks } from "@/components/header";
-import { InstagramIcon } from "@/components/icons/instagram-icon";
-import { XIcon } from "@/components/icons/x-icon";
+import { CONTACT_EMAIL, platformLabels, platformLinks } from "@/lib/links";
 import { ArrowRightIcon, ArrowUpRightIcon } from "lucide-react";
 import { EASE_OUT, SPRING_PRESS } from "@/lib/ease";
-
-const APP_EMAIL = "contact@madaprivileges.mg";
 
 type MobileNavProps = Record<string, never>;
 
@@ -70,7 +67,7 @@ export function MobileNav({}: MobileNavProps) {
 	};
 
 	return (
-		<div className="md:hidden">
+		<div className="lg:hidden">
 			<motion.button
 				aria-controls="mobile-menu"
 				aria-expanded={open}
@@ -111,7 +108,7 @@ export function MobileNav({}: MobileNavProps) {
 					{open && (
 						<motion.div
 							animate="show"
-							className="relative flex min-h-full origin-top flex-1 flex-col bg-background pt-14 md:hidden"
+							className="relative flex min-h-full origin-top flex-1 flex-col bg-background pt-14 lg:hidden"
 							exit="exit"
 							initial="hidden"
 							variants={surfaceVariants}
@@ -145,15 +142,29 @@ export function MobileNav({}: MobileNavProps) {
 										initial="hidden"
 										variants={rowVariants(navLinks.length)}
 									>
+										{/* Vers la plateforme, pas vers une ancre interne (§ 4). */}
 										<Button
 											className="w-full"
 											nativeButton={false}
-											render={<a href="#partenaire" onClick={close} />}
+											render={
+												<a href={platformLinks.register} onClick={close} />
+											}
 											size="lg"
 											variant="default"
 										>
-											Devenir partenaire
+											{platformLabels.register}
 											<ArrowRightIcon data-icon="inline-end" />
+										</Button>
+										<Button
+											className="mt-3 w-full"
+											nativeButton={false}
+											render={
+												<a href={platformLinks.login} onClick={close} />
+											}
+											size="lg"
+											variant="outline"
+										>
+											{platformLabels.login}
 										</Button>
 									</motion.div>
 
@@ -166,24 +177,15 @@ export function MobileNav({}: MobileNavProps) {
 									>
 										<a
 											className="font-mono text-xs tracking-wide text-muted-foreground hover:text-foreground hover:underline"
-											href={`mailto:${APP_EMAIL}`}
+											href={`mailto:${CONTACT_EMAIL}`}
 										>
-											{APP_EMAIL}
+											{CONTACT_EMAIL}
 										</a>
-										<div className="flex items-center gap-4">
-											{socials.map((s) => (
-												<a
-													aria-label={s.label}
-													className="text-muted-foreground transition-colors hover:text-foreground"
-													href={s.href}
-													key={s.label}
-													rel="noopener noreferrer"
-													target="_blank"
-												>
-													{s.icon}
-												</a>
-											))}
-										</div>
+										{/*
+											Les icônes de réseaux sociaux ont été retirées :
+											les comptes n'existent pas encore et pointaient
+											vers « # ». À réintégrer une fois ouverts.
+										*/}
 									</motion.div>
 								</div>
 							</div>
@@ -195,15 +197,3 @@ export function MobileNav({}: MobileNavProps) {
 	);
 }
 
-const socials = [
-	{
-		label: "Instagram",
-		href: "#",
-		icon: <InstagramIcon className="size-4.5" />,
-	},
-	{
-		label: "X (Twitter)",
-		href: "#",
-		icon: <XIcon className="size-4.5" />,
-	},
-];

@@ -4,23 +4,30 @@ import { useScroll } from "@/hooks/use-scroll";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/mobile-nav";
 import { Logo } from "@/components/logo";
+import { platformLabels, platformLinks } from "@/lib/links";
+import Link from "next/link";
 
+/** Liens du centre de la barre (cahier de contenu, § 3). */
 export const navLinks = [
   {
     label: "Le programme",
-    href: "#programme",
+    href: "/#programme",
   },
   {
-    label: "Secteurs",
-    href: "#secteurs",
+    label: "Membres",
+    href: "/#membres",
   },
   {
-    label: "Fonctionnement",
-    href: "#fonctionnement",
+    label: "Enseignes",
+    href: "/#enseignes",
   },
   {
     label: "FAQ",
-    href: "#faq",
+    href: "/#faq",
+  },
+  {
+    label: "Contact",
+    href: "/#contact",
   },
 ];
 
@@ -38,7 +45,7 @@ export function Header() {
     >
       <nav
         className={cn(
-          "flex h-14 w-full items-center justify-between px-4 transition-all duration-300 ease-out md:h-12",
+          "flex h-14 w-full items-center justify-between gap-2 px-4 transition-all duration-300 ease-out md:h-12",
           {
             "md:px-2": scrolled,
           },
@@ -50,33 +57,65 @@ export function Header() {
           par le tracé lui-même, d'où un seul SVG plutôt qu'une icône suivie
           de texte — qui ne pouvait pas respecter l'alignement.
         */}
-        <a
-          className="flex h-fit w-max items-center rounded-md p-1.5"
-          href="#accueil"
+        <Link
+          className="flex h-fit w-max shrink-0 items-center rounded-md p-1.5"
+          href="/#accueil"
         >
           <Logo className="h-7" orientation="horizontal" />
-        </a>
+        </Link>
 
-        <div className={cn("hidden items-center gap-1.5 md:flex")}>
+        <div className={cn("hidden items-center gap-1.5 lg:flex")}>
           <div className="flex items-center">
             {navLinks.map((link) => (
               <Button
                 key={link.label}
                 size="sm"
                 variant="ghost"
-                render={<a href={link.href} />}
+                render={<Link href={link.href} />}
                 nativeButton={false}
               >
                 {link.label}
               </Button>
             ))}
           </div>
-          <Button size="sm" variant={scrolled ? "default" : "secondary"}>
-            Devenir partenaire
+          {/*
+            Les deux boutons quittent le site vitrine pour la plateforme
+            (§ 4). Même onglet : le visiteur part y accomplir une action.
+          */}
+          <Button
+            nativeButton={false}
+            render={<a href={platformLinks.login} />}
+            size="sm"
+            variant="ghost"
+          >
+            {platformLabels.login}
+          </Button>
+          <Button
+            nativeButton={false}
+            render={<a href={platformLinks.register} />}
+            size="sm"
+            variant={scrolled ? "default" : "secondary"}
+          >
+            {platformLabels.register}
           </Button>
         </div>
 
-        <MobileNav />
+        {/*
+          Sur mobile, « Commencer gratuitement » reste visible en permanence
+          (§ 3) ; le reste passe dans le menu déroulant.
+        */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <Button
+            className="hidden sm:inline-flex"
+            nativeButton={false}
+            render={<a href={platformLinks.register} />}
+            size="sm"
+            variant="default"
+          >
+            {platformLabels.register}
+          </Button>
+          <MobileNav />
+        </div>
       </nav>
     </header>
   );

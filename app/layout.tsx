@@ -4,6 +4,7 @@ import { Gabarito, Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
+import { SITE_URL } from "@/lib/links";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -28,10 +29,22 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Métadonnées du cahier de contenu, § 5.1 — reprises mot pour mot.
 export const metadata: Metadata = {
-  title: "Mada Privileges — La fidélité, partout à Madagascar",
+  metadataBase: new URL(SITE_URL),
+  title: "Mada Privilèges — vos cartes de fidélité, dans votre téléphone",
   description:
-    "La première plateforme nationale de fidélité multi-partenaires de Madagascar. Un seul compte, tous vos commerces préférés, des privilèges partout.",
+    "Créez votre compte gratuitement, scannez le QR code de vos commerçants et retrouvez toutes vos cartes de fidélité au même endroit. À Madagascar.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: SITE_URL,
+    siteName: "Mada Privilèges",
+    title: "Mada Privilèges — vos cartes de fidélité, dans votre téléphone",
+    description:
+      "Créez votre compte gratuitement, scannez le QR code de vos commerçants et retrouvez toutes vos cartes de fidélité au même endroit. À Madagascar.",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
