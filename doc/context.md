@@ -48,8 +48,7 @@ connexion.
 
 Cumul de points inter-enseignes · inscription par SMS/USSD · mention d'une
 application mobile · géolocalisation des offres · bloc de chiffres « 01 / 07 /
-2027 » · calendrier de déploiement par ville · liens réseaux sociaux vers
-« # » · rubrique diaspora.
+2027 » · calendrier de déploiement par ville · liens réseaux sociaux morts · rubrique diaspora.
 
 ## Objectifs du site
 
@@ -65,5 +64,5 @@ Antananarivo.
 
 Adresse postale du bureau · numéros de téléphone valides · boîte
 contact@madaprivileges.com et enregistrements SPF/DKIM · photos et logos
-partenaires · informations juridiques des pages légales · décision sur les
-comptes de réseaux sociaux.
+partenaires · informations juridiques des pages légales · ouverture du compte X
+(Instagram est en ligne : https://www.instagram.com/madaprivileges/).

@@ -1,19 +1,22 @@
 import { ThemeToggle } from "@/components/motion/theme-toggle";
 import { FullWidthDivider } from "@/components/full-width-divider";
 import { Logo } from "@/components/logo";
+import { InstagramIcon } from "@/components/icons/instagram-icon";
 import Link from "next/link";
 import {
 	CONTACT_EMAIL,
 	legalLinks,
 	platformLabels,
 	platformLinks,
+	socialLinks,
 } from "@/lib/links";
 
 /**
  * Pied de page (cahier de contenu, § 5.11).
  *
- * Les icônes de réseaux sociaux ont été retirées : les comptes n'existent pas
- * encore et pointaient vers « # ». À réintégrer une fois ouverts.
+ * Les réseaux sociaux n'y figurent qu'une fois le compte réellement ouvert :
+ * Instagram l'est, X ne l'est pas encore. Ajouter le second le jour venu dans
+ * `socialLinks`, pas ici.
  */
 const programme = [
 	{ title: "Le programme", href: "/#programme" },
@@ -58,6 +61,23 @@ export function Footer() {
 							href={platformLinks.partnerRegister}
 						>
 							{platformLabels.partnerRegister}
+						</a>
+						{/*
+							Réintégré maintenant que le compte est ouvert (§ 5.11).
+							X/Twitter reste absent tant que le sien ne l'est pas :
+							une icône qui ne mène nulle part vaut moins que rien.
+						*/}
+						<a
+							aria-label="Mada Privilèges sur Instagram"
+							className="flex w-max items-center gap-2 rounded-full border border-background/25 px-3 py-1.5 text-background/80 transition-colors hover:border-background/50 hover:text-background"
+							href={socialLinks.instagram}
+							rel="noopener noreferrer"
+							target="_blank"
+						>
+							<InstagramIcon className="size-3.5" />
+							<span className="font-mono text-xs font-medium tracking-wide">
+								Instagram
+							</span>
 						</a>
 						<ThemeToggle
 							variant="rectangle"

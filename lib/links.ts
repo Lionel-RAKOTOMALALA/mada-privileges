@@ -35,6 +35,17 @@ export const platformLabels = {
 	programs: "Voir les programmes disponibles",
 } as const;
 
+/**
+ * Réseaux sociaux.
+ *
+ * Le § 5.11 ne les réintègre qu'une fois les comptes réellement ouverts : ne
+ * rien ajouter ici tant qu'un compte n'existe pas. X/Twitter reste donc
+ * absent — seul Instagram est ouvert à ce jour.
+ */
+export const socialLinks = {
+	instagram: "https://www.instagram.com/madaprivileges/",
+} as const;
+
 /** Site vitrine — pages annexes. */
 export const legalLinks = {
 	mentions: "/mentions-legales",
