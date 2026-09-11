@@ -1,10 +1,8 @@
 import type React from "react";
 import { ContactForm } from "@/components/contact-form";
+import { EDITOR, PHONE } from "@/lib/legal";
 import { CONTACT_EMAIL } from "@/lib/links";
 import { ChevronRight, Mail, MapPin, Phone } from "lucide-react";
-
-/** Coordonnée que EDS doit fournir avant la mise en ligne (§ 9). */
-const TO_BE_PROVIDED = "À compléter";
 
 type Channel = {
 	icon: React.ReactNode;
@@ -19,9 +17,13 @@ type Channel = {
  *
  * Les numéros et l'adresse de la maquette (« +261 34 05 000 00 », « Lot II
  * K 47 ») étaient des exemples que le cahier interdit explicitement d'envoyer
- * en production. Ils sont remplacés par un marqueur visible : mieux vaut un
- * champ manifestement vide qu'une coordonnée plausible mais fausse, qu'on
- * oublierait de corriger.
+ * en production. Ils portaient depuis un marqueur « À compléter » ; la
+ * documentation juridique fournit désormais les vraies coordonnées, reprises
+ * de `lib/legal.ts` pour qu'elles restent identiques ici et sur les mentions
+ * légales.
+ *
+ * Le lien téléphonique ne vise que la première des quatre lignes : `tel:` ne
+ * sait pas en composer plusieurs, et les trois autres restent lisibles.
  */
 const channels: Channel[] = [
 	{
@@ -34,14 +36,15 @@ const channels: Channel[] = [
 	{
 		icon: <MapPin />,
 		label: "Bureau",
-		value: TO_BE_PROVIDED,
-		hint: "EDS Group, Antananarivo — adresse postale à fournir.",
+		value: EDITOR.address,
+		hint: "EDS Group, éditeur de Mada Privilèges.",
 	},
 	{
 		icon: <Phone />,
 		label: "Téléphone",
-		value: TO_BE_PROVIDED,
-		hint: "Du lundi au vendredi, 8h – 17h.",
+		href: `tel:${PHONE.primaryHref}`,
+		value: PHONE.display,
+		hint: PHONE.hours,
 	},
 ];
 

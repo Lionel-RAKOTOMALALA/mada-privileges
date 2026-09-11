@@ -147,7 +147,7 @@ export function MobileNav({}: MobileNavProps) {
 											className="w-full"
 											nativeButton={false}
 											render={
-												<a href={platformLinks.register} onClick={close} />
+												<a data-outbound="register" href={platformLinks.register} onClick={close} />
 											}
 											size="lg"
 											variant="default"
@@ -159,7 +159,7 @@ export function MobileNav({}: MobileNavProps) {
 											className="mt-3 w-full"
 											nativeButton={false}
 											render={
-												<a href={platformLinks.login} onClick={close} />
+												<a data-outbound="login" href={platformLinks.login} onClick={close} />
 											}
 											size="lg"
 											variant="outline"

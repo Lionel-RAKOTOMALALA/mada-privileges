@@ -82,37 +82,46 @@ export function Header() {
             Les deux boutons quittent le site vitrine pour la plateforme
             (§ 4). Même onglet : le visiteur part y accomplir une action.
           */}
+                                                                                                                                                                                                                                          {/* § 3 : « Se connecter » en secondaire, « Commencer gratuitement »
+              en principal — les deux styles sont fixes, la hiérarchie entre
+              les deux actions ne dépend pas du défilement. */}
           <Button
+            data-outbound="login"
             nativeButton={false}
             render={<a href={platformLinks.login} />}
             size="sm"
-            variant="ghost"
+            variant="secondary"
           >
             {platformLabels.login}
           </Button>
           <Button
-            nativeButton={false}
-            render={<a href={platformLinks.register} />}
-            size="sm"
-            variant={scrolled ? "default" : "secondary"}
-          >
-            {platformLabels.register}
-          </Button>
-        </div>
-
-        {/*
-          Sur mobile, « Commencer gratuitement » reste visible en permanence
-          (§ 3) ; le reste passe dans le menu déroulant.
-        */}
-        <div className="flex items-center gap-2 lg:hidden">
-          <Button
-            className="hidden sm:inline-flex"
+            data-outbound="register"
             nativeButton={false}
             render={<a href={platformLinks.register} />}
             size="sm"
             variant="default"
           >
             {platformLabels.register}
+          </Button>
+        </div>
+
+        {/*
+          § 3 : sur mobile, « Commencer gratuitement » reste visible en
+          permanence — y compris sur les petits écrans, où il était masqué.
+          Libellé raccourci sous 400 px pour qu'il tienne à côté du logo.
+        */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <Button
+            data-outbound="register"
+            nativeButton={false}
+            render={<a href={platformLinks.register} />}
+            size="sm"
+            variant="default"
+          >
+            <span className="hidden min-[400px]:inline">
+              {platformLabels.register}
+            </span>
+            <span className="min-[400px]:hidden">Commencer</span>
           </Button>
           <MobileNav />
         </div>

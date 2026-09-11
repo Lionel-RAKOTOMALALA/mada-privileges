@@ -48,7 +48,7 @@ export function LogosSection() {
 			>
 				<Button
 					nativeButton={false}
-					render={<a href={platformLinks.programs} />}
+					render={<a data-outbound="programs" href={platformLinks.programs} />}
 					size="lg"
 					variant="outline"
 				>

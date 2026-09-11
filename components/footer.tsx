@@ -58,7 +58,7 @@ export function Footer() {
 						</p>
 						<a
 							className="w-max text-sm font-medium text-background underline decoration-background/30 underline-offset-4 transition-colors hover:decoration-background"
-							href={platformLinks.partnerRegister}
+							data-outbound="partnerRegister" href={platformLinks.partnerRegister}
 						>
 							{platformLabels.partnerRegister}
 						</a>

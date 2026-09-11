@@ -4,6 +4,7 @@ import { Gabarito, Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
+import { OutboundTracking } from "@/components/motion/outbound-tracking";
 import { SITE_URL } from "@/lib/links";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -35,6 +36,13 @@ export const metadata: Metadata = {
   title: "Mada Privilèges — vos cartes de fidélité, dans votre téléphone",
   description:
     "Créez votre compte gratuitement, scannez le QR code de vos commerçants et retrouvez toutes vos cartes de fidélité au même endroit. À Madagascar.",
+  /*
+   * § 5.1 — langue « fr, version alternative : en ». Seul le français existe :
+   * le cahier ne fournit aucun texte anglais. Aucun `hreflang` n'est donc
+   * déclaré — en annoncer un vers une page inexistante desservirait le
+   * référencement. À ajouter en même temps que la version anglaise, avec le
+   * sélecteur FR/EN de la barre de navigation (§ 3).
+   */
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -69,7 +77,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           enableSystem
           disableTransitionOnChange
         >
-          <SmoothScroll>{children}</SmoothScroll>
+          <SmoothScroll>
+            <OutboundTracking />
+            {children}
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

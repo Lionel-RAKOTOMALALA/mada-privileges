@@ -87,7 +87,7 @@ export function Members() {
 				<div className="mt-10" data-animate="block">
 					<Button
 						nativeButton={false}
-						render={<a href={platformLinks.register} />}
+						render={<a data-outbound="register" href={platformLinks.register} />}
 						size="lg"
 					>
 						{platformLabels.register}

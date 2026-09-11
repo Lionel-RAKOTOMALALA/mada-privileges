@@ -9,7 +9,7 @@ import {
 } from "@/lib/contact";
 import { legalLinks } from "@/lib/links";
 import { cn } from "@/lib/utils";
-import { SendHorizontal } from "lucide-react";
+import { LoaderCircle, SendHorizontal } from "lucide-react";
 
 /**
  * Formulaire de contact (cahier de contenu, § 6). Neutres pris aux tokens de
@@ -256,7 +256,11 @@ export function ContactForm() {
 				disabled={pending}
 				type="submit"
 			>
-				{pending ? "Envoi…" : "Envoyer ma demande"}
+				{/* § 6.2 : indicateur de chargement pendant la soumission. */}
+				{pending && (
+					<LoaderCircle aria-hidden="true" className="size-4 animate-spin" />
+				)}
+				{pending ? "Envoi en cours…" : "Envoyer ma demande"}
 				{!pending && <SendHorizontal className="size-4" />}
 			</button>
 

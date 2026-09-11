@@ -95,7 +95,7 @@ export function HeroSection() {
 					<div className="flex w-fit flex-wrap items-center justify-center gap-3">
 						<Button
 							nativeButton={false}
-							render={<a href={platformLinks.register} />}
+							render={<a data-outbound="register" href={platformLinks.register} />}
 							size="lg"
 							variant="secondary"
 						>
@@ -104,7 +104,7 @@ export function HeroSection() {
 						</Button>
 						<a
 							className="inline-flex h-10 items-center gap-1.5 rounded-md border border-background/25 px-4 text-sm font-medium text-background transition-colors hover:border-background/50 hover:bg-background/10"
-							href={platformLinks.partnerRegister}
+							data-outbound="partnerRegister" href={platformLinks.partnerRegister}
 						>
 							{platformLabels.partnerRegister}
 						</a>

@@ -5,6 +5,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { platformLabels, platformLinks } from "@/lib/links";
+import { ArrowRightIcon } from "lucide-react";
 
 export function FaqsSection() {
   return (
@@ -40,13 +43,30 @@ export function FaqsSection() {
             ))}
           </Accordion>
         </div>
-        <div className="flex h-14 items-center justify-center border-t md:col-span-2">
-          <p className="text-muted-foreground">
+        {/*
+          Le § 4 place « Commencer gratuitement » dans la FAQ, au même titre
+          que la navigation, l'accroche et la rubrique membres : c'est le
+          dernier endroit où lever une objection avant de convertir.
+        */}
+        <div className="flex flex-col items-center justify-center gap-4 border-t px-4 py-8 md:col-span-2 md:flex-row md:justify-between md:px-10">
+          <p className="text-center text-muted-foreground md:text-left">
             Une autre question ?{" "}
-            <Link className="font-medium text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground" href="/#contact">
+            <Link
+              className="font-medium text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground"
+              href="/#contact"
+            >
               Écrivez-nous
             </Link>
           </p>
+          <Button
+            data-outbound="register"
+            nativeButton={false}
+            render={<a href={platformLinks.register} />}
+            size="lg"
+          >
+            {platformLabels.register}
+            <ArrowRightIcon data-icon="inline-end" />
+          </Button>
         </div>
       </div>
     </section>

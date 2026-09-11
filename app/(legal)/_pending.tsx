@@ -1,26 +1,30 @@
 /**
- * Encadré « à rédiger ».
+ * Encadré de statut des pages annexes.
  *
- * Les trois pages annexes attendent des informations juridiques que seul EDS
- * peut fournir (§ 9). Plutôt qu'un texte générique qui aurait l'apparence
- * d'une page conforme, la page affiche ce qu'il manque : une page légale
- * inventée est pire que pas de page du tout.
+ * La documentation juridique porte la mention « Projet de publication, à
+ * compléter et à faire relire avant mise en ligne », et se termine par une
+ * annexe listant ce qui manque. Le texte fourni est publié tel quel ; ce qui
+ * manque est dit ici, au lieu d'être comblé par des formules inventées.
+ *
+ * Une page légale qui a l'air complète mais ne l'est pas est plus dangereuse
+ * qu'une page qui annonce ses lacunes : elle n'appelle aucune correction.
  */
 export function Pending({ items }: { items: string[] }) {
 	return (
-		<div className="mt-10 rounded-xl border border-surface-accent/40 bg-muted/40 p-6">
+		<aside className="mt-14 rounded-xl border border-surface-accent/40 bg-muted/40 p-6">
 			<p className="font-mono text-[11px] tracking-[0.2em] text-surface-accent uppercase">
-				À rédiger avant la mise en ligne
+				Éléments à compléter avant publication
 			</p>
 			<p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-				Cette page doit être complétée avec les informations ci-dessous, à
-				fournir par EDS Group. Le formulaire de contact ne doit pas être
-				ouvert au public tant qu&apos;elle ne l&apos;est pas.
+				Le texte ci-dessus est celui de la documentation juridique d&apos;EDS
+				Group, version 1.0. Il reste en projet tant que les points suivants ne
+				sont pas tranchés. Les valeurs soulignées en pointillé dans le texte
+				sont provisoires.
 			</p>
 			<ul className="mt-4 flex flex-col gap-2">
 				{items.map((item) => (
 					<li
-						className="flex items-start gap-2.5 text-sm text-muted-foreground"
+						className="flex items-start gap-2.5 text-sm leading-relaxed text-muted-foreground"
 						key={item}
 					>
 						<span
@@ -31,6 +35,6 @@ export function Pending({ items }: { items: string[] }) {
 					</li>
 				))}
 			</ul>
-		</div>
+		</aside>
 	);
 }

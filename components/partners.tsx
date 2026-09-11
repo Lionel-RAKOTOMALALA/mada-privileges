@@ -112,7 +112,7 @@ export function Partners() {
 				>
 					<Button
 						nativeButton={false}
-						render={<a href={platformLinks.partnerRegister} />}
+						render={<a data-outbound="partnerRegister" href={platformLinks.partnerRegister} />}
 						size="lg"
 						variant="secondary"
 					>
