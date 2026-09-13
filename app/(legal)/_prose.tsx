@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type React from "react";
+import { EDS, EdsLogo } from "@/components/eds-group";
 import { legalLinks } from "@/lib/links";
 import { cn } from "@/lib/utils";
 
@@ -17,6 +18,12 @@ import { cn } from "@/lib/utils";
 
 /** Corps de texte commun — une seule définition, pour que les trois pages aient la même voix. */
 const BODY = "text-sm leading-relaxed text-muted-foreground md:text-[15px]";
+
+/**
+ * La raison sociale est réexportée ici pour que les trois documents n'aient
+ * qu'une seule provenance d'import — leur vocabulaire vient de ce module.
+ */
+export { EDS };
 
 export function DocTitle({
 	title,
@@ -280,6 +287,25 @@ const DOCUMENTS = [
 ];
 
 /**
+ * Signature de l'éditeur.
+ *
+ * Une page juridique se termine par l'identification de celui qui la publie :
+ * le logotype EDS Group y est à sa place, en bas, au même rang que la date de
+ * mise à jour — pas en bandeau ni en filigrane, où il concurrencerait le
+ * logotype Mada Privilèges que porte déjà l'en-tête.
+ */
+export function EdsSignature() {
+	return (
+		<div className="flex items-center gap-4">
+			<EdsLogo />
+			<p className="text-xs leading-relaxed text-muted-foreground">
+				Document publié par <EDS />, éditeur de Mada Privilèges.
+			</p>
+		</div>
+	);
+}
+
+/**
  * Pied de document.
  *
  * « Ces trois documents forment un ensemble cohérent et se renvoient l'un à
@@ -297,7 +323,8 @@ export function DocFooter({
 
 	return (
 		<footer className="mt-14 border-t border-border pt-8">
-			<p className="text-xs text-muted-foreground">
+			<EdsSignature />
+			<p className="mt-6 text-xs text-muted-foreground">
 				Dernière mise à jour : {updated}.
 			</p>
 			<div className="mt-5 flex flex-col gap-2">

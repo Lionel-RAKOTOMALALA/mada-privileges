@@ -10,7 +10,15 @@ import {
 	REFERENCE_LAWS,
 } from "@/lib/legal";
 import { CONTACT_EMAIL, legalLinks } from "@/lib/links";
-import { A, Bullets, DocFooter, DocTitle, Section, Table } from "../_prose";
+import {
+	A,
+	Bullets,
+	DocFooter,
+	DocTitle,
+	EDS,
+	Section,
+	Table,
+} from "../_prose";
 import { Pending } from "../_pending";
 
 export const metadata: Metadata = {
@@ -32,7 +40,7 @@ export default function Page() {
 		<>
 			<DocTitle kicker="Document I" title="Mentions légales">
 				<p>
-					Le site madaprivileges.com est édité par {EDITOR.name},{" "}
+					Le site madaprivileges.com est édité par <EDS formal />,{" "}
 					{EDITOR.quality}.
 				</p>
 			</DocTitle>
@@ -72,18 +80,18 @@ export default function Page() {
 
 			<Section id="propriete" title="Marque et propriété intellectuelle">
 				<p>
-					Mada Privilèges est une marque détenue et exploitée par EDS Group.
+					Mada Privilèges est une marque détenue et exploitée par <EDS />.
 					L&apos;ensemble des éléments composant le site, notamment la
 					structure, les textes, les visuels, les logos, les icônes, les bases
 					de données et le code source, est protégé par le droit de la propriété
-					intellectuelle et demeure la propriété exclusive d&apos;EDS Group ou de
+					intellectuelle et demeure la propriété exclusive d&apos;<EDS /> ou de
 					ses partenaires.
 				</p>
 				<p>
 					Toute reproduction, représentation, adaptation ou exploitation, totale
 					ou partielle, par quelque procédé que ce soit et sur quelque support
 					que ce soit, est interdite sans autorisation écrite préalable
-					d&apos;EDS Group.
+					d&apos;<EDS />.
 				</p>
 				<p>
 					Les dénominations, marques et logos des enseignes partenaires affichés
@@ -117,19 +125,19 @@ export default function Page() {
 					Chaque programme, avec ses règles, ses seuils, ses récompenses et sa
 					durée de validité, est défini et administré par l&apos;enseigne qui
 					l&apos;émet. La relation commerciale se noue entre le membre et
-					l&apos;enseigne. EDS Group n&apos;est pas partie au contrat de vente ou
+					l&apos;enseigne. <EDS /> n&apos;est pas partie au contrat de vente ou
 					de prestation conclu entre eux, et n&apos;est pas tenue de la
 					délivrance des récompenses promises par une enseigne.
 				</p>
 				<p>
-					EDS Group met en œuvre les moyens raisonnables pour assurer
+					<EDS /> met en œuvre les moyens raisonnables pour assurer
 					l&apos;exactitude des informations publiées et la disponibilité du
 					service, sans pouvoir garantir l&apos;absence totale d&apos;erreur ni
 					une accessibilité ininterrompue. Le service peut être suspendu pour
 					maintenance, mise à jour ou raison de sécurité.
 				</p>
 				<p>
-					Le site peut contenir des liens vers des sites tiers. EDS Group
+					Le site peut contenir des liens vers des sites tiers. <EDS />{" "}
 					n&apos;exerce aucun contrôle sur leur contenu et décline toute
 					responsabilité à leur égard.
 				</p>

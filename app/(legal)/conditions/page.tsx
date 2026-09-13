@@ -7,6 +7,7 @@ import {
 	Bullets,
 	DocFooter,
 	DocTitle,
+	EDS,
 	Part,
 	Prov,
 	Table,
@@ -89,7 +90,7 @@ export default function Page() {
 		<>
 			<DocTitle kicker="Document III" title="Conditions générales d'utilisation">
 				<p>
-					Mada Privilèges est un service exploité par {EDITOR.name}, société de
+					Mada Privilèges est un service exploité par <EDS formal />, société de
 					droit malgache, dont le siège est situé {EDITOR.address},
 					immatriculée sous le RCS {EDITOR.rcs}, NIF {EDITOR.nif}, propriétaire
 					de la marque Mada Privilèges.
@@ -117,7 +118,7 @@ export default function Page() {
 							"Le service accessible à l'adresse madaprivileges.mg, comprenant les comptes membres et les espaces partenaires.",
 						],
 						[
-							"EDS Group",
+							<EDS key="eds" />,
 							"L'éditeur et l'exploitant de la Plateforme, propriétaire de la marque.",
 						],
 						[
@@ -155,7 +156,7 @@ export default function Page() {
 			<Article n={2} title="Objet et acceptation">
 				<p>
 					Les présentes conditions définissent les droits et obligations
-					d&apos;EDS Group, des Membres et des Enseignes.
+					d&apos;<EDS />, des Membres et des Enseignes.
 				</p>
 				<p>
 					La création d&apos;un Compte vaut acceptation pleine et entière des
@@ -168,22 +169,22 @@ export default function Page() {
 					<A href={legalLinks.privacy}>politique de confidentialité</A>
 					accessible depuis le site. En cas de contradiction entre le contrat de
 					souscription et les présentes conditions, le contrat prévaut pour ce
-					qui concerne la relation entre EDS Group et l&apos;Enseigne.
+					qui concerne la relation entre <EDS /> et l&apos;Enseigne.
 				</p>
 			</Article>
 
 			<Article n={3} title="Rôle d'EDS Group">
 				<p>
-					EDS Group fournit un outil technique. Elle n&apos;est ni vendeuse, ni
+					<EDS /> fournit un outil technique. Elle n&apos;est ni vendeuse, ni
 					prestataire des biens et services proposés par les Enseignes.
 				</p>
 				<p>
 					Chaque Programme est défini, paramétré et administré par
 					l&apos;Enseigne qui l&apos;émet, sous sa seule responsabilité. La
-					Récompense est due par l&apos;Enseigne, pas par EDS Group.
+					Récompense est due par l&apos;Enseigne, pas par <EDS />.
 				</p>
 				<p>
-					EDS Group ne perçoit aucune somme au nom et pour le compte des
+					<EDS /> ne perçoit aucune somme au nom et pour le compte des
 					Enseignes. Tout paiement effectué par un Membre l&apos;est directement
 					auprès de l&apos;Enseigne.
 				</p>
@@ -257,7 +258,7 @@ export default function Page() {
 					différentes Enseignes.
 				</p>
 				<p>
-					Les Unités de fidélité ne constituent pas une créance sur EDS Group.
+					Les Unités de fidélité ne constituent pas une créance sur <EDS />.
 				</p>
 			</Article>
 
@@ -310,7 +311,7 @@ export default function Page() {
 					La prestation est due par l&apos;Enseigne. Les conditions de validité,
 					d&apos;annulation et de remboursement sont celles de l&apos;Enseigne et
 					de la réglementation applicable. En cas de défaillance de
-					l&apos;Enseigne, EDS Group ne peut se substituer à elle pour délivrer
+					l&apos;Enseigne, <EDS /> ne peut se substituer à elle pour délivrer
 					la prestation ou rembourser les sommes versées.
 				</p>
 			</Article>
@@ -320,7 +321,7 @@ export default function Page() {
 					Une Enseigne qui cesse sa souscription doit en informer ses Membres par
 					l&apos;intermédiaire de la Plateforme, avec un préavis de{" "}
 					<Prov>30 jours</Prov> pendant lequel les Récompenses déjà acquises
-					restent exigibles. EDS Group relaie cette information dans le
+					restent exigibles. <EDS /> relaie cette information dans le
 					portefeuille des Membres concernés.
 				</p>
 				<p>
@@ -329,7 +330,7 @@ export default function Page() {
 				</p>
 				<p>
 					En cas de cessation d&apos;activité brutale, de liquidation ou de
-					disparition d&apos;une Enseigne, EDS Group informe les Membres dès
+					disparition d&apos;une Enseigne, <EDS /> informe les Membres dès
 					qu&apos;elle en a connaissance mais ne peut garantir la délivrance des
 					Récompenses ni le remboursement des prestations prépayées.
 				</p>
@@ -343,7 +344,7 @@ export default function Page() {
 					de <Prov>30 jours</Prov> à compter du fait contesté.
 				</p>
 				<p>
-					EDS Group interroge l&apos;Enseigne, communique aux deux parties
+					<EDS /> interroge l&apos;Enseigne, communique aux deux parties
 					l&apos;historique enregistré sur la Plateforme et facilite une
 					résolution amiable. Elle n&apos;a ni le pouvoir ni l&apos;obligation
 					d&apos;imposer une solution.
@@ -427,10 +428,13 @@ export default function Page() {
 						"afficher son QR code de manière visible au point de vente et former son personnel à son usage ;",
 						"enregistrer les opérations de fidélité de façon sincère, sans crédit fictif ni refus injustifié ;",
 						<>
-							répondre aux réclamations transmises par EDS Group dans un délai de{" "}
+							répondre aux réclamations transmises par <EDS /> dans un délai de{" "}
 							<Prov>15 jours</Prov> ;
 						</>,
-						"informer EDS Group de tout changement affectant ses coordonnées, ses points de vente ou son activité.",
+						<>
+							informer <EDS /> de tout changement affectant ses coordonnées,
+							ses points de vente ou son activité.
+						</>,
 					]}
 				/>
 			</Article>
@@ -453,7 +457,7 @@ export default function Page() {
 
 			<Article n={19} title="Données des membres">
 				<p>
-					Les données des Membres sont traitées par EDS Group en qualité de
+					Les données des Membres sont traitées par <EDS /> en qualité de
 					responsable de traitement, dans les conditions de la{" "}
 					<A href={legalLinks.privacy}>politique de confidentialité</A>.
 				</p>
@@ -484,7 +488,7 @@ export default function Page() {
 				</p>
 				<p>
 					À défaut de paiement dans un délai de <Prov>15 jours</Prov> après
-					relance, EDS Group peut suspendre l&apos;espace partenaire. La
+					relance, <EDS /> peut suspendre l&apos;espace partenaire. La
 					suspension rend le Programme invisible aux nouveaux Membres. Les
 					Récompenses déjà acquises restent dues par l&apos;Enseigne à ses
 					clients.
@@ -500,7 +504,7 @@ export default function Page() {
 
 			<Article n={21} title="Disponibilité et évolution du service">
 				<p>
-					EDS Group met en œuvre les moyens raisonnables pour assurer la
+					<EDS /> met en œuvre les moyens raisonnables pour assurer la
 					disponibilité de la Plateforme, sans garantie d&apos;un accès
 					ininterrompu.
 				</p>
@@ -511,7 +515,7 @@ export default function Page() {
 					programmées sont annoncées lorsque cela est possible.
 				</p>
 				<p>
-					EDS Group peut faire évoluer les fonctionnalités de la Plateforme. Une
+					<EDS /> peut faire évoluer les fonctionnalités de la Plateforme. Une
 					évolution qui supprimerait une mécanique de Programme existante est
 					annoncée aux Enseignes concernées avec un préavis de{" "}
 					<Prov>60 jours</Prov>.
@@ -521,12 +525,12 @@ export default function Page() {
 			<Article n={22} title="Propriété intellectuelle">
 				<p>
 					La Plateforme, sa structure, son code, ses interfaces, ses textes et
-					ses éléments graphiques sont la propriété d&apos;EDS Group et ne
+					ses éléments graphiques sont la propriété d&apos;<EDS /> et ne
 					peuvent être reproduits ni exploités sans autorisation écrite.
 				</p>
 				<p>
 					L&apos;Enseigne conserve la propriété de sa marque et de son logo, et
-					autorise EDS Group à les afficher sur la Plateforme, dans le catalogue
+					autorise <EDS /> à les afficher sur la Plateforme, dans le catalogue
 					des Enseignes et dans les supports de communication du réseau, pendant
 					la durée de la souscription.
 				</p>
@@ -543,20 +547,20 @@ export default function Page() {
 
 			<Article n={24} title="Responsabilité">
 				<p>
-					EDS Group répond des dysfonctionnements de la Plateforme qui lui sont
+					<EDS /> répond des dysfonctionnements de la Plateforme qui lui sont
 					imputables. Elle ne répond ni de la qualité des biens et services
 					vendus par les Enseignes, ni de la délivrance des Récompenses, ni des
 					sommes versées directement aux Enseignes.
 				</p>
 				<p>
-					La responsabilité d&apos;EDS Group ne peut être engagée pour la perte
+					La responsabilité d&apos;<EDS /> ne peut être engagée pour la perte
 					d&apos;Unités de fidélité résultant du retrait volontaire d&apos;une
 					Carte, de l&apos;expiration prévue à l&apos;article 8, de la clôture
 					d&apos;un compte à la demande de son titulaire, ou du départ d&apos;une
 					Enseigne.
 				</p>
 				<p>
-					À l&apos;égard d&apos;une Enseigne, la réparation due par EDS Group ne
+					À l&apos;égard d&apos;une Enseigne, la réparation due par <EDS /> ne
 					peut excéder le montant des sommes versées par cette Enseigne au titre
 					des <Prov>12 derniers mois</Prov>.
 				</p>
@@ -567,7 +571,7 @@ export default function Page() {
 
 			<Article n={25} title="Suspension et résiliation par EDS Group">
 				<p>
-					EDS Group peut suspendre ou fermer un Compte, après mise en demeure
+					<EDS /> peut suspendre ou fermer un Compte, après mise en demeure
 					restée sans effet sauf urgence ou gravité, en cas de manquement aux
 					présentes conditions, notamment de fraude, d&apos;usage abusif, de
 					refus répété d&apos;honorer les Récompenses ou d&apos;atteinte à la
@@ -581,7 +585,7 @@ export default function Page() {
 
 			<Article n={26} title="Modification des conditions">
 				<p>
-					EDS Group peut modifier les présentes conditions. Toute modification
+					<EDS /> peut modifier les présentes conditions. Toute modification
 					substantielle est notifiée aux Membres et aux Enseignes par e-mail ou
 					par un message sur la Plateforme, au moins <Prov>30 jours</Prov> avant
 					son entrée en vigueur.
@@ -595,7 +599,7 @@ export default function Page() {
 
 			<Article n={27} title="Preuve">
 				<p>
-					Les enregistrements conservés dans les systèmes d&apos;EDS Group,
+					Les enregistrements conservés dans les systèmes d&apos;<EDS />,
 					notamment les journaux de connexion et l&apos;historique des opérations
 					de fidélité, sont admis comme mode de preuve entre les parties,
 					jusqu&apos;à preuve contraire.

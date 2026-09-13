@@ -7,7 +7,15 @@ import {
 	PRIVACY_EMAIL,
 } from "@/lib/legal";
 import { CONTACT_EMAIL, legalLinks } from "@/lib/links";
-import { A, Bullets, DocFooter, DocTitle, Section, Table } from "../_prose";
+import {
+	A,
+	Bullets,
+	DocFooter,
+	DocTitle,
+	EDS,
+	Section,
+	Table,
+} from "../_prose";
 import { Pending } from "../_pending";
 
 export const metadata: Metadata = {
@@ -29,7 +37,7 @@ export default function Page() {
 		<>
 			<DocTitle kicker="Document II" title="Politique de confidentialité">
 				<p>
-					EDS Group attache de l&apos;importance à la protection des données de
+					<EDS /> attache de l&apos;importance à la protection des données de
 					ses membres, des enseignes partenaires et des visiteurs de son site.
 					Cette politique explique quelles données sont collectées, pourquoi,
 					combien de temps elles sont conservées, avec qui elles sont partagées
@@ -44,7 +52,7 @@ export default function Page() {
 
 			<Section id="responsable" title="1. Responsable du traitement">
 				<p>
-					{EDITOR.name}, {EDITOR.address}. RCS {EDITOR.rcs}, NIF {EDITOR.nif}.
+					<EDS formal />, {EDITOR.address}. RCS {EDITOR.rcs}, NIF {EDITOR.nif}.
 				</p>
 				<p>
 					Point de contact pour toute question relative aux données
@@ -165,7 +173,10 @@ export default function Page() {
 			<Section id="destinataires" title="4. Qui accède à vos données">
 				<Bullets
 					items={[
-						"Le personnel habilité d'EDS Group, dans la limite de ce que sa fonction exige.",
+						<>
+							Le personnel habilité d&apos;<EDS />, dans la limite de ce que sa
+							fonction exige.
+						</>,
 						<>
 							Les enseignes partenaires, uniquement pour ce qui concerne leur
 							propre programme. Une enseigne voit la progression du membre sur
@@ -178,7 +189,7 @@ export default function Page() {
 					]}
 				/>
 				<p>
-					EDS Group ne vend pas vos données, ne les loue pas, et ne les transmet
+					<EDS /> ne vend pas vos données, ne les loue pas, et ne les transmet
 					à aucun tiers à des fins publicitaires.
 				</p>
 			</Section>
@@ -186,7 +197,7 @@ export default function Page() {
 			<Section id="transferts" title="5. Transferts hors de Madagascar">
 				<p>
 					Certains prestataires techniques peuvent héberger ou traiter des
-					données en dehors du territoire malgache. Dans ce cas, EDS Group
+					données en dehors du territoire malgache. Dans ce cas, <EDS />{" "}
 					s&apos;assure que ces prestataires appliquent un niveau de protection
 					équivalent à celui exigé par la loi 2014-038, par des engagements
 					contractuels appropriés.
@@ -237,7 +248,7 @@ export default function Page() {
 				</p>
 				<p>
 					Pour exercer ces droits, écrivez à{" "}
-					<A href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</A>. EDS Group
+					<A href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</A>. <EDS />{" "}
 					répond dans un délai de trente jours. Une pièce justifiant de votre
 					identité peut vous être demandée en cas de doute raisonnable.
 				</p>
@@ -257,7 +268,7 @@ export default function Page() {
 				</p>
 				<p>
 					En cas de violation de données susceptible de porter atteinte à vos
-					droits, EDS Group prend les mesures de confinement nécessaires, informe
+					droits, <EDS /> prend les mesures de confinement nécessaires, informe
 					les personnes concernées et procède aux notifications prévues par la
 					réglementation.
 				</p>

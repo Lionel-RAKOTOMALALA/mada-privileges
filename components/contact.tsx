@@ -1,5 +1,6 @@
 import type React from "react";
 import { ContactForm } from "@/components/contact-form";
+import { EDS } from "@/components/eds-group";
 import { EDITOR, PHONE } from "@/lib/legal";
 import { CONTACT_EMAIL } from "@/lib/links";
 import { ChevronRight, Mail, MapPin, Phone } from "lucide-react";
@@ -9,7 +10,7 @@ type Channel = {
 	label: string;
 	href?: string;
 	value: React.ReactNode;
-	hint: string;
+	hint: React.ReactNode;
 };
 
 /**
@@ -37,7 +38,11 @@ const channels: Channel[] = [
 		icon: <MapPin />,
 		label: "Bureau",
 		value: EDITOR.address,
-		hint: "EDS Group, éditeur de Mada Privilèges.",
+		hint: (
+			<>
+				<EDS />, éditeur de Mada Privilèges.
+			</>
+		),
 	},
 	{
 		icon: <Phone />,

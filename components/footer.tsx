@@ -1,5 +1,6 @@
 import { ThemeToggle } from "@/components/motion/theme-toggle";
 import { FullWidthDivider } from "@/components/full-width-divider";
+import { EDS } from "@/components/eds-group";
 import { Logo } from "@/components/logo";
 import { InstagramIcon } from "@/components/icons/instagram-icon";
 import Link from "next/link";
@@ -54,7 +55,8 @@ export function Footer() {
 							suivent.
 						</p>
 						<p className="font-mono text-[11px] tracking-[0.2em] text-background/50 uppercase">
-							Conçu &amp; opéré par EDS Group — Antananarivo
+							Conçu &amp; opéré par{" "}
+							<EDS className="text-background" /> — Antananarivo
 						</p>
 						<a
 							className="w-max text-sm font-medium text-background underline decoration-background/30 underline-offset-4 transition-colors hover:decoration-background"
