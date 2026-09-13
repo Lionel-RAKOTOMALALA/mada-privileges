@@ -4,7 +4,6 @@ import {
 	EDITOR,
 	HOST,
 	LAST_UPDATED,
-	PENDING,
 	PHONE,
 	PRIVACY_EMAIL,
 	REFERENCE_LAWS,
@@ -19,7 +18,6 @@ import {
 	Section,
 	Table,
 } from "../_prose";
-import { Pending } from "../_pending";
 
 export const metadata: Metadata = {
 	title: "Mentions légales — Mada Privilèges",
@@ -178,8 +176,6 @@ export default function Page() {
 					{AUTHORITY.short}).
 				</p>
 			</Section>
-
-			<Pending items={[...PENDING.legal]} />
 
 			<DocFooter current={legalLinks.mentions} updated={LAST_UPDATED} />
 		</>

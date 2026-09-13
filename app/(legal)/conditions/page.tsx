@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EDITOR, LAST_UPDATED, PENDING } from "@/lib/legal";
+import { EDITOR, LAST_UPDATED } from "@/lib/legal";
 import { CONTACT_EMAIL, legalLinks } from "@/lib/links";
 import {
 	A,
@@ -13,7 +13,6 @@ import {
 	Table,
 	Toc,
 } from "../_prose";
-import { Pending } from "../_pending";
 
 export const metadata: Metadata = {
 	title: "Conditions générales d'utilisation — Mada Privilèges",
@@ -620,8 +619,6 @@ export default function Page() {
 					resteraient applicables.
 				</p>
 			</Article>
-
-			<Pending items={[...PENDING.terms]} />
 
 			<DocFooter current={legalLinks.terms} updated={LAST_UPDATED} />
 		</>

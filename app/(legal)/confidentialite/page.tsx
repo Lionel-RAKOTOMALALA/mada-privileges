@@ -3,7 +3,6 @@ import {
 	AUTHORITY,
 	EDITOR,
 	LAST_UPDATED,
-	PENDING,
 	PRIVACY_EMAIL,
 } from "@/lib/legal";
 import { CONTACT_EMAIL, legalLinks } from "@/lib/links";
@@ -16,7 +15,6 @@ import {
 	Section,
 	Table,
 } from "../_prose";
-import { Pending } from "../_pending";
 
 export const metadata: Metadata = {
 	title: "Politique de confidentialité — Mada Privilèges",
@@ -312,8 +310,6 @@ export default function Page() {
 					par un message sur la plateforme.
 				</p>
 			</Section>
-
-			<Pending items={[...PENDING.privacy]} />
 
 			<DocFooter current={legalLinks.privacy} updated={LAST_UPDATED} />
 		</>
