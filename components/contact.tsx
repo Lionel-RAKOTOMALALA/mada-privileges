@@ -1,6 +1,7 @@
 import type React from "react";
 import { ContactForm } from "@/components/contact-form";
 import { EDS } from "@/components/eds-group";
+import { MP } from "@/components/mada-privileges";
 import { EDITOR, PHONE } from "@/lib/legal";
 import { CONTACT_EMAIL } from "@/lib/links";
 import { ChevronRight, Mail, MapPin, Phone } from "lucide-react";
@@ -40,7 +41,7 @@ const channels: Channel[] = [
 		value: EDITOR.address,
 		hint: (
 			<>
-				<EDS />, éditeur de Mada Privilèges.
+				<EDS />, éditeur de <MP />.
 			</>
 		),
 	},

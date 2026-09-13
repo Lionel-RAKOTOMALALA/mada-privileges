@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type React from "react";
 import { EDS, EdsLogo } from "@/components/eds-group";
+import { MP } from "@/components/mada-privileges";
 import { legalLinks } from "@/lib/links";
 import { cn } from "@/lib/utils";
 
@@ -18,12 +19,6 @@ import { cn } from "@/lib/utils";
 
 /** Corps de texte commun — une seule définition, pour que les trois pages aient la même voix. */
 const BODY = "text-sm leading-relaxed text-muted-foreground md:text-[15px]";
-
-/**
- * La raison sociale est réexportée ici pour que les trois documents n'aient
- * qu'une seule provenance d'import — leur vocabulaire vient de ce module.
- */
-export { EDS };
 
 export function DocTitle({
 	title,
@@ -198,7 +193,12 @@ export function Table({
  * Le document d'origine encadre ces chiffres de crochets : ce sont des durées
  * proposées, que l'annexe demande de faire confirmer. Les publier sans marque
  * les présenterait comme arbitrées. Le souligné pointillé le signale sans
- * casser la lecture ; l'encadré de statut, en bas de page, dit pourquoi.
+ * casser la lecture.
+ *
+ * Depuis le retrait de l'encadré de statut, plus rien n'explique ce pointillé
+ * au lecteur : seule l'infobulle le fait, et elle n'existe pas au doigt. À
+ * trancher — soit ces durées sont arbitrées et le marquage saute, soit il
+ * reste et il lui faut une légende publiable.
  */
 export function Prov({ children }: { children: React.ReactNode }) {
 	return (
@@ -299,7 +299,7 @@ export function EdsSignature() {
 		<div className="flex items-center gap-4">
 			<EdsLogo />
 			<p className="text-xs leading-relaxed text-muted-foreground">
-				Document publié par <EDS />, éditeur de Mada Privilèges.
+				Document publié par <EDS />, éditeur de <MP />.
 			</p>
 		</div>
 	);

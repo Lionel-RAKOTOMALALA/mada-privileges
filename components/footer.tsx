@@ -1,6 +1,7 @@
 import { ThemeToggle } from "@/components/motion/theme-toggle";
 import { FullWidthDivider } from "@/components/full-width-divider";
 import { EDS } from "@/components/eds-group";
+import { MP } from "@/components/mada-privileges";
 import { Logo } from "@/components/logo";
 import { InstagramIcon } from "@/components/icons/instagram-icon";
 import Link from "next/link";
@@ -132,7 +133,7 @@ export function Footer() {
 			/>
 			<div className="flex flex-col items-center justify-center gap-1 py-6 text-center">
 				<p className="text-sm text-background/60">
-					&copy; {new Date().getFullYear()} Mada Privilèges —
+					&copy; {new Date().getFullYear()} <MP className="text-background" /> —
 					madaprivileges.com
 				</p>
 			</div>

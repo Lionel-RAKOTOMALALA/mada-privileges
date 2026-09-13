@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { highlightMP } from "@/components/mada-privileges";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { platformLabels, platformLinks } from "@/lib/links";
@@ -37,7 +38,7 @@ export function FaqsSection() {
                   {item.title}
                 </AccordionTrigger>
                 <AccordionContent className="pb-4 text-muted-foreground">
-                  {item.content}
+                  {highlightMP(item.content)}
                 </AccordionContent>
               </AccordionItem>
             ))}

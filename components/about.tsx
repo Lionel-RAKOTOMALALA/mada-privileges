@@ -1,4 +1,5 @@
 import { EDS } from "@/components/eds-group";
+import { MP } from "@/components/mada-privileges";
 
 /**
  * « Qui porte la plateforme » (cahier de contenu, § 5.8).
@@ -17,7 +18,7 @@ export function About() {
 				</div>
 				<div data-animate="block">
 					<p className="text-sm leading-relaxed text-muted-foreground md:text-base">
-						Mada Privilèges est conçue et opérée par <EDS />, cabinet de
+						<MP /> est conçue et opérée par <EDS />, cabinet de
 						conseil et d&apos;ingénierie numérique établi à Antananarivo et
 						actif dans plusieurs pays d&apos;Afrique subsaharienne. Les
 						données sont hébergées et administrées par nos équipes, et

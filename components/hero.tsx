@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { MP } from "@/components/mada-privileges";
 import { Button } from "@/components/ui/button";
 import { FullWidthDivider } from "@/components/full-width-divider";
 import { Logo, LogoMark } from "@/components/logo";
@@ -83,7 +84,7 @@ export function HeroSection() {
 					className="mt-6 max-w-xl text-balance text-sm leading-relaxed text-background/75 sm:text-base md:text-lg"
 					data-hero="lede"
 				>
-					Mada Privilèges rassemble les programmes de fidélité de vos
+					<MP className="text-background" /> rassemble les programmes de fidélité de vos
 					commerçants à Madagascar. Vous scannez, vous cumulez, vous êtes
 					récompensé. C&apos;est gratuit, et il n&apos;y a rien à installer.
 				</p>

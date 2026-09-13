@@ -6,12 +6,13 @@ import {
 	PRIVACY_EMAIL,
 } from "@/lib/legal";
 import { CONTACT_EMAIL, legalLinks } from "@/lib/links";
+import { EDS } from "@/components/eds-group";
+import { MP } from "@/components/mada-privileges";
 import {
 	A,
 	Bullets,
 	DocFooter,
 	DocTitle,
-	EDS,
 	Section,
 	Table,
 } from "../_prose";
@@ -112,7 +113,7 @@ export default function Page() {
 					]}
 				/>
 				<p>
-					Mada Privilèges ne collecte aucune donnée sensible au sens de la loi
+					<MP /> ne collecte aucune donnée sensible au sens de la loi
 					2014-038, notamment aucune donnée relative à la santé, aux opinions
 					politiques, aux convictions religieuses ou à l&apos;appartenance
 					syndicale. Le service ne demande jamais de numéro de carte bancaire ni

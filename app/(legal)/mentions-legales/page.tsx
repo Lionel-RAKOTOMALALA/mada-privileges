@@ -9,12 +9,13 @@ import {
 	REFERENCE_LAWS,
 } from "@/lib/legal";
 import { CONTACT_EMAIL, legalLinks } from "@/lib/links";
+import { EDS } from "@/components/eds-group";
+import { MP, highlightMP } from "@/components/mada-privileges";
 import {
 	A,
 	Bullets,
 	DocFooter,
 	DocTitle,
-	EDS,
 	Section,
 	Table,
 } from "../_prose";
@@ -39,7 +40,7 @@ export default function Page() {
 			<DocTitle kicker="Document I" title="Mentions légales">
 				<p>
 					Le site madaprivileges.com est édité par <EDS formal />,{" "}
-					{EDITOR.quality}.
+					{highlightMP(EDITOR.quality)}.
 				</p>
 			</DocTitle>
 
@@ -78,7 +79,7 @@ export default function Page() {
 
 			<Section id="propriete" title="Marque et propriété intellectuelle">
 				<p>
-					Mada Privilèges est une marque détenue et exploitée par <EDS />.
+					<MP /> est une marque détenue et exploitée par <EDS />.
 					L&apos;ensemble des éléments composant le site, notamment la
 					structure, les textes, les visuels, les logos, les icônes, les bases
 					de données et le code source, est protégé par le droit de la propriété
@@ -101,7 +102,7 @@ export default function Page() {
 
 			<Section id="objet" title="Objet du site et lien avec la plateforme">
 				<p>
-					Le site madaprivileges.com présente le service Mada Privilèges. Il ne
+					Le site madaprivileges.com présente le service <MP />. Il ne
 					permet ni la création de compte, ni la gestion des cartes de fidélité.
 				</p>
 				<p>
@@ -114,7 +115,7 @@ export default function Page() {
 
 			<Section id="responsabilite" title="Nature du service et responsabilité">
 				<p>
-					Mada Privilèges est un outil technique qui permet aux enseignes
+					<MP /> est un outil technique qui permet aux enseignes
 					partenaires de créer et d&apos;animer leur propre programme de
 					fidélité, et aux membres de rassembler ces programmes dans un
 					portefeuille numérique unique.

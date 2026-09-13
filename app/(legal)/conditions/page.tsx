@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { EDITOR, LAST_UPDATED } from "@/lib/legal";
 import { CONTACT_EMAIL, legalLinks } from "@/lib/links";
+import { EDS } from "@/components/eds-group";
+import { MP } from "@/components/mada-privileges";
 import {
 	A,
 	Article,
 	Bullets,
 	DocFooter,
 	DocTitle,
-	EDS,
 	Part,
 	Prov,
 	Table,
@@ -89,10 +90,10 @@ export default function Page() {
 		<>
 			<DocTitle kicker="Document III" title="Conditions générales d'utilisation">
 				<p>
-					Mada Privilèges est un service exploité par <EDS formal />, société de
+					<MP /> est un service exploité par <EDS formal />, société de
 					droit malgache, dont le siège est situé {EDITOR.address},
 					immatriculée sous le RCS {EDITOR.rcs}, NIF {EDITOR.nif}, propriétaire
-					de la marque Mada Privilèges.
+					de la marque <MP />.
 				</p>
 				<p>
 					Le service permet à des commerçants, entreprises et prestataires de

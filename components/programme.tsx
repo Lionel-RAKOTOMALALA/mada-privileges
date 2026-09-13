@@ -1,4 +1,5 @@
 import { DecorIcon } from "@/components/decor-icon";
+import { MP } from "@/components/mada-privileges";
 import { FullWidthDivider } from "@/components/full-width-divider";
 
 /**
@@ -53,7 +54,7 @@ export function Programme() {
 							data-animate="card"
 						>
 							La carte cartonnée qu&apos;on tamponne à chaque passage, et
-							qu&apos;on finit par perdre. Mada Privilèges fait la même
+							qu&apos;on finit par perdre. <MP /> fait la même
 							chose, en numérique.
 						</p>
 						<p
