@@ -27,6 +27,7 @@
   --color-brand-taupe: var(--brand-taupe);
   --color-brand-ardoise: var(--brand-ardoise);
   --color-brand-encre: var(--brand-encre);
+  --color-brand-blanc: var(--brand-blanc);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -83,6 +84,14 @@
   --brand-encre: #1b231e;
 
   /*
+   * Le blanc n'est pas un ton de la gamme mais la charte l'admet nommément
+   * pour le logotype — « seul PRIVILÈGES peut changer de couleur, noir et
+   * blanc compris ». Il sert ici de libellé sur l'aplat bleu, où il porte à
+   * 13,4:1 contre 10,2:1 pour l'écru.
+   */
+  --brand-blanc: #fff;
+
+  /*
    * Ton clair dérivé de la gamme : sur fond sombre le bordeaux tombe à 1,4:1
    * et ne signale plus rien. On monte la clarté en gardant sa teinte exacte —
    * c'est le principe des dégradés de la charte, pas une couleur nouvelle.
@@ -130,10 +139,15 @@
   /*
    * Aplat d'action — même principe que l'encre du logotype : c'est la surface
    * qui pose la paire fond/libellé. Sur fond clair, l'or ne détache le bouton
-   * qu'à 2,4:1 : c'est le bleu qui porte l'aplat, avec un libellé écru.
+   * qu'à 2,4:1 : c'est le bleu qui porte l'aplat, avec un libellé blanc.
+   *
+   * Blanc et non écru : sur le bleu il porte à 13,4:1 contre 10,2:1, et c'est
+   * le ton demandé pour les boutons. L'écru reste celui du logotype, que la
+   * charte traite à part. Sur l'aplat or du thème sombre, en revanche, le
+   * blanc tombe à 2,39:1 — sous le seuil du texte : le libellé y reste bleu.
    */
   --surface-action: var(--brand-navy);
-  --surface-action-ink: var(--brand-ecru);
+  --surface-action-ink: var(--brand-blanc);
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -141,8 +155,25 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: var(--brand-navy);
-  --primary-foreground: oklch(0.984 0.019 200.873);
+
+  /*
+   * Le bouton principal de shadcn est branché sur l'aplat d'action de la
+   * charte, au lieu de garder la paire livrée avec le gabarit.
+   *
+   * Celle-ci posait un libellé `oklch(0.984 0.019 200.873)` — un blanc cyané
+   * qui n'appartient pas à la gamme — pendant que le bouton du formulaire de
+   * contact, lui, suivait la charte et affichait l'écru. Deux boutons
+   * principaux, deux libellés différents.
+   *
+   * L'alias fait plus que les réconcilier : `--surface-action` bascule avec
+   * la surface, alors que le bleu figé du gabarit ne se détachait plus du
+   * fond en thème sombre (1,47:1). L'or y prend le relais, à 8,29:1.
+   *
+   * Les deux lignes ne sont donc pas reprises dans `.dark` : le rôle s'y
+   * charge lui-même de la bascule.
+   */
+  --primary: var(--surface-action);
+  --primary-foreground: var(--surface-action-ink);
   --secondary: oklch(0.967 0.001 286.375);
   --secondary-foreground: oklch(0.21 0.006 285.885);
   --muted: oklch(0.97 0 0);
@@ -184,8 +215,7 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: var(--brand-navy);
-  --primary-foreground: oklch(0.984 0.019 200.873);
+  /* `--primary` suit `--surface-action`, redéfini plus haut : rien à reprendre. */
   --secondary: oklch(0.274 0.006 286.033);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -235,7 +265,7 @@
   --surface-accent: var(--brand-ocre);
   --surface-alerte: var(--brand-bordeaux);
   --surface-action: var(--brand-navy);
-  --surface-action-ink: var(--brand-ecru);
+  --surface-action-ink: var(--brand-blanc);
 }
 
 @layer base {

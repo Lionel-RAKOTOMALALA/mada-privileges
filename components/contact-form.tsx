@@ -205,12 +205,19 @@ export function ContactForm() {
 					className="flex items-start gap-3 text-xs leading-relaxed text-muted-foreground"
 					htmlFor="consentement"
 				>
+					{/*
+						La case suit le rôle d'action et non celui d'accent : cocher,
+						c'est le premier des deux gestes que ce formulaire demande, et
+						elle se lit juste au-dessus du bouton d'envoi. Elle prend donc
+						son aplat — bleu en thème clair, or en thème sombre — plutôt
+						que l'ocre décoratif, qui la détachait du bouton.
+					*/}
 					<input
 						aria-describedby={
 							state.errors?.consentement ? "consentement-error" : undefined
 						}
 						aria-invalid={state.errors?.consentement ? true : undefined}
-						className="mt-0.5 size-4 shrink-0 rounded border-border accent-surface-accent"
+						className="mt-0.5 size-4 shrink-0 rounded border-border accent-surface-action"
 						defaultChecked={state.values?.consentement ?? false}
 						id="consentement"
 						name="consentement"
