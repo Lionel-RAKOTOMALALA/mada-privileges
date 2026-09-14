@@ -43,7 +43,9 @@ export const PHONE = {
 
 /**
  * Le même prestataire héberge le site vitrine et la plateforme — le document
- * répète la mention pour chacun des deux, à l'identique.
+ * répète la mention pour chacun des deux, à l'identique. Les mentions légales
+ * les réunissent en une phrase : répétée telle quelle, elle passait pour une
+ * erreur de copie.
  *
  * `name` est un nom de domaine et non une raison sociale : c'est ce que le
  * document fournit, et l'annexe réclame précisément la raison sociale.

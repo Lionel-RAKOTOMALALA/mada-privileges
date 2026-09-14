@@ -67,13 +67,16 @@ export default function Page() {
 			</Section>
 
 			<Section id="hebergement" title="Hébergement">
+				{/*
+					Le document source énonce l'hébergeur une fois pour le site et une
+					fois pour la plateforme, mot pour mot. Comme c'est le même
+					prestataire à la même adresse, la répétition se lisait comme une
+					erreur de copie : les deux propriétés sont donc nommées dans une
+					seule phrase, sans rien retrancher à l'information exigée.
+				*/}
 				<p>
-					Le site vitrine madaprivileges.com est hébergé par {HOST.name},{" "}
-					{HOST.address}.
-				</p>
-				<p>
-					La plateforme madaprivileges.mg est hébergée par {HOST.name},{" "}
-					{HOST.address}.
+					Le site vitrine madaprivileges.com et la plateforme
+					madaprivileges.mg sont hébergés par {HOST.name}, {HOST.address}.
 				</p>
 			</Section>
 
