@@ -52,13 +52,25 @@ export const EDITOR = {
 
 /**
  * Quatre lignes consécutives. Un lien `tel:` ne peut en viser qu'une : c'est
- * la première, les trois autres restent affichées comme dans le document.
+ * la première, les trois autres restent affichées à côté.
+ *
+ * Le découpage est celui qu'on lit et qu'on dicte à Madagascar pour un mobile
+ * Airtel professionnel : indicatif, puis 35, puis des paires. Le document
+ * juridique groupait autrement — « +261 3 50 101 010 / 011 / 012 / 013 » —
+ * soit exactement les mêmes chiffres, mais une coupure qu'un lecteur malgache
+ * ne reconnaît pas. C'est la forme d'usage qui est publiée.
+ *
+ * Les espaces du numéro de base sont insécables : il ne doit jamais se rompre
+ * en fin de ligne. Ceux qui entourent les variantes restent ordinaires — c'est
+ * là, et seulement là, que le retour à la ligne est admis.
  */
+const PHONE_BASE = `+261${NB}35${NB}01${NB}010${NB}10`;
+
 export const PHONE = {
-	primary: "+261 3 50 101 010",
+	primary: PHONE_BASE,
 	/** Forme composable pour `href="tel:"` — sans espaces ni séparateurs. */
 	primaryHref: "+261350101010",
-	display: "+261 3 50 101 010 / 011 / 012 / 013",
+	display: `${PHONE_BASE} / 11 / 12 / 13`,
 	hours: "Du lundi au vendredi, 8h – 17h.",
 } as const;
 
