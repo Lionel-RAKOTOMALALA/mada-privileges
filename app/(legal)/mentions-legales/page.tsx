@@ -48,8 +48,8 @@ export default function Page() {
 				<Table
 					head={["Élément", "Information"]}
 					rows={[
-						["Forme juridique", <em key="forme">À compléter</em>],
-						["Capital social", <em key="capital">À compléter</em>],
+						["Forme juridique", EDITOR.legalForm],
+						["Capital social", EDITOR.capital],
 						["Siège social", EDITOR.address],
 						["RCS", EDITOR.rcs],
 						["NIF", EDITOR.nif],

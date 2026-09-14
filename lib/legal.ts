@@ -7,14 +7,27 @@
  * nulle part ailleurs, pour qu'une correction se fasse en un seul endroit.
  *
  * Le document porte le statut « Projet de publication, à compléter et à faire
- * relire avant mise en ligne ». Les pages publient le texte fourni sans
- * combler les trous : là où une information manque, elles le disent à leur
- * place — « À compléter » dans le tableau de l'éditeur, par exemple.
+ * relire avant mise en ligne ». Les pages publient le texte fourni sans jamais
+ * combler les trous d'elles-mêmes : là où une information manque, elles le
+ * disent à la place du lecteur plutôt que d'inventer une formule.
+ *
+ * Le tableau de l'éditeur est complet depuis le 14 septembre 2026 — forme
+ * juridique et capital social ont été fournis. Il ne reste à obtenir que la
+ * raison sociale de l'hébergeur (cf. `HOST`).
  *
  * Ce qui reste à trancher se suit dans l'annexe du document source, pas sur le
  * site : l'encadré de statut qui la recopiait a été retiré, c'étaient des
  * consignes internes et non du texte à publier.
  */
+
+/**
+ * Espace insécable, construit en code plutôt que frappé au clavier.
+ *
+ * Un U+00A0 littéral est invisible en relecture et redevient un espace
+ * ordinaire à la première réécriture de la ligne — ce qui s'est produit ici
+ * avant qu'on ne passe par cette constante.
+ */
+const NB = String.fromCharCode(160);
 
 export const EDITOR = {
 	name: "EDS GROUP",
@@ -24,13 +37,11 @@ export const EDITOR = {
 	/** Société à responsabilité limitée unipersonnelle. Fourni le 14 septembre 2026. */
 	legalForm: "SARLU",
 	/*
-	 * Montant en ariary. Espaces insécables écrits en toutes lettres (` `)
-	 * et non frappés au clavier : dans la colonne étroite du tableau sur
-	 * téléphone, une coupure entre les groupes de chiffres donnerait à lire
-	 * deux nombres au lieu d'un, et un espace insécable invisible dans le code
-	 * se perd à la première réécriture.
+	 * Montant en ariary, séparateurs en espaces insécables : dans la colonne
+	 * étroite du tableau sur téléphone, une coupure entre deux groupes de
+	 * chiffres donnerait à lire deux nombres au lieu d'un.
 	 */
-	capital: "5 000 000 Ar",
+	capital: `5${NB}000${NB}000${NB}Ar`,
 	address: "Lot II M 92 Antsakaviro-Ambodirotra, Antananarivo, Madagascar",
 	city: "Antananarivo",
 	rcs: "2025B101473",
