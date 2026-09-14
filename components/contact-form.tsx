@@ -7,9 +7,9 @@ import {
 	PROFILES,
 	SUBJECTS,
 } from "@/lib/contact";
-import { legalLinks } from "@/lib/links";
+import { BROCHURE, legalLinks } from "@/lib/links";
 import { cn } from "@/lib/utils";
-import { LoaderCircle, SendHorizontal } from "lucide-react";
+import { DownloadIcon, LoaderCircle, SendHorizontal } from "lucide-react";
 
 /**
  * Formulaire de contact (cahier de contenu, § 6). Neutres pris aux tokens de
@@ -51,6 +51,25 @@ export function ContactForm() {
 				<p className="max-w-sm text-sm leading-relaxed text-justify hyphens-auto text-muted-foreground">
 					{state.message}
 				</p>
+				{/*
+					La plaquette n'apparaît qu'ici, une fois la demande partie : le
+					visiteur vient de se qualifier, le document lui revient. L'offrir
+					plus tôt dans le formulaire donnerait une porte de sortie à qui
+					n'a pas encore écrit.
+				*/}
+				<div className="mt-1 flex flex-col items-start gap-1">
+					<a
+						className="inline-flex items-center gap-2 text-sm font-medium text-surface-accent underline decoration-surface-accent/40 underline-offset-4 transition-colors hover:decoration-surface-accent"
+						data-outbound="brochure"
+						download={BROCHURE.download}
+						href={BROCHURE.href}
+					>
+						<DownloadIcon aria-hidden="true" className="size-4" />
+						{BROCHURE.label}
+					</a>
+					{/* Le poids se dit avant le clic : beaucoup de visiteurs sont en données mobiles. */}
+					<span className="text-xs text-muted-foreground">{BROCHURE.meta}</span>
+				</div>
 			</div>
 		);
 	}

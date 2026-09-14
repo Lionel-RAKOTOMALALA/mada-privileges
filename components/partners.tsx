@@ -1,8 +1,9 @@
 import type React from "react";
 import { Button } from "@/components/ui/button";
-import { platformLabels, platformLinks } from "@/lib/links";
+import { BROCHURE, platformLabels, platformLinks } from "@/lib/links";
 import {
 	ArrowRightIcon,
+	DownloadIcon,
 	QrCodeIcon,
 	SlidersHorizontalIcon,
 	TrendingUpIcon,
@@ -110,15 +111,45 @@ export function Partners() {
 					className="mt-12 flex flex-col items-start gap-3"
 					data-animate="block"
 				>
-					<Button
-						nativeButton={false}
-						render={<a data-outbound="partnerRegister" href={platformLinks.partnerRegister} />}
-						size="lg"
-						variant="secondary"
-					>
-						{platformLabels.partnerRegister}
-						<ArrowRightIcon data-icon="inline-end" />
-					</Button>
+					{/*
+						Deux actions, une hiérarchie nette : s'inscrire reste l'aplat
+						plein, la plaquette n'est qu'un filet. C'est le moment où le
+						commerçant hésite — lui offrir de quoi réfléchir vaut mieux que
+						de le perdre, mais le document ne doit pas concurrencer
+						l'inscription.
+
+						Le filet plutôt qu'une variante du composant : sur cette surface
+						inversée, `outline` poserait un aplat clair qui pèserait plus que
+						le bouton principal. `border-background/25` est l'idiome que le
+						pied de page emploie déjà pour ses actions secondaires.
+					*/}
+					<div className="flex flex-wrap items-center gap-3">
+						<Button
+							nativeButton={false}
+							render={<a data-outbound="partnerRegister" href={platformLinks.partnerRegister} />}
+							size="lg"
+							variant="secondary"
+						>
+							{platformLabels.partnerRegister}
+							<ArrowRightIcon data-icon="inline-end" />
+						</Button>
+						<Button
+							className="border-background/25 text-background hover:border-background/50 hover:bg-background/10 hover:text-background"
+							nativeButton={false}
+							render={
+								<a
+									data-outbound="brochure"
+									download={BROCHURE.download}
+									href={BROCHURE.href}
+								/>
+							}
+							size="lg"
+							variant="ghost"
+						>
+							<DownloadIcon data-icon="inline-start" />
+							{BROCHURE.label}
+						</Button>
+					</div>
 					<p className="max-w-md text-xs leading-relaxed text-justify hyphens-auto text-background/60">
 						Création du programme en autonomie. Notre équipe à Antananarivo
 						vous accompagne si vous le souhaitez.

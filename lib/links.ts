@@ -53,6 +53,25 @@ export const legalLinks = {
 	terms: "/conditions",
 } as const;
 
+/**
+ * Plaquette de présentation, servie depuis `public/`.
+ *
+ * Elle paraît à deux moments, et les deux comptent : en repli du bouton
+ * d'inscription pour l'enseigne qui hésite encore, puis en clair sur la page
+ * de remerciement, où le prospect vient de se qualifier.
+ *
+ * `label` porte le poids et le format : un lien de téléchargement qui ne dit
+ * pas ce qu'il va coûter se clique mal sur une connexion mobile. À corriger si
+ * le fichier est remplacé.
+ */
+export const BROCHURE = {
+	href: "/plaquette-mada-privileges-2026.pdf",
+	/** Nom du fichier tel qu'il arrivera dans les téléchargements du visiteur. */
+	download: "Plaquette Mada Privileges 2026.pdf",
+	label: "Télécharger la plaquette",
+	meta: "PDF · 4 pages · 600 Ko",
+} as const;
+
 /** Adresse de contact du site vitrine (cahier de contenu, § 5.10). */
 export const CONTACT_EMAIL = "contact@madaprivileges.com";
 
