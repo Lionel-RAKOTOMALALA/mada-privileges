@@ -24,11 +24,13 @@ export const EDITOR = {
 	/** Société à responsabilité limitée unipersonnelle. Fourni le 14 septembre 2026. */
 	legalForm: "SARLU",
 	/*
-	 * Montant en ariary. Les espaces sont insécables — dans la colonne étroite
-	 * du tableau sur téléphone, une coupure entre les groupes de chiffres
-	 * donnerait à lire deux nombres au lieu d'un.
+	 * Montant en ariary. Espaces insécables écrits en toutes lettres (` `)
+	 * et non frappés au clavier : dans la colonne étroite du tableau sur
+	 * téléphone, une coupure entre les groupes de chiffres donnerait à lire
+	 * deux nombres au lieu d'un, et un espace insécable invisible dans le code
+	 * se perd à la première réécriture.
 	 */
-	capital: "5 000 000 Ar",
+	capital: "5 000 000 Ar",
 	address: "Lot II M 92 Antsakaviro-Ambodirotra, Antananarivo, Madagascar",
 	city: "Antananarivo",
 	rcs: "2025B101473",
