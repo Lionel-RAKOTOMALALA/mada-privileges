@@ -60,10 +60,16 @@ export function HeroSection() {
 					className="mx-auto flex w-fit items-center gap-3 rounded-sm border border-background/20 bg-background/5 p-1 backdrop-blur-sm"
 					data-hero="badge"
 				>
+					{/*
+						Le point porte seul la couleur du statut, le libellé reste à
+						l'encre du texte : c'est la convention du web, et un libellé
+						vert sur pastille claire perdrait en lisibilité ce que le
+						point gagne en évidence.
+					*/}
 					<span className="flex items-center gap-1.5 rounded-xs bg-background/90 px-2 py-1 font-mono text-[10px] font-semibold tracking-widest text-foreground uppercase">
 						<span className="relative flex size-1.5">
-							<span className="absolute inline-flex size-full animate-ping rounded-full bg-foreground opacity-60" />
-							<span className="relative inline-flex size-1.5 rounded-full bg-foreground" />
+							<span className="absolute inline-flex size-full animate-ping rounded-full bg-brand-actif opacity-60" />
+							<span className="relative inline-flex size-1.5 rounded-full bg-brand-actif" />
 						</span>
 						En ligne
 					</span>

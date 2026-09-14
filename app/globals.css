@@ -15,6 +15,7 @@
   --color-brand-navy: var(--brand-navy);
   --color-brand-or: var(--brand-or);
   --color-brand-alerte: var(--brand-alerte);
+  --color-brand-actif: var(--brand-actif);
   /* Rôles portés par la surface — cf. .surface-invert */
   --color-surface-accent: var(--surface-accent);
   --color-surface-alerte: var(--surface-alerte);
@@ -87,6 +88,24 @@
    * c'est le principe des dégradés de la charte, pas une couleur nouvelle.
    */
   --brand-alerte: oklch(78% 0.12 20.54); /* bordeaux éclairci — erreurs */
+
+  /*
+   * Même procédé pour le signal de service en ligne, que le vert désigne
+   * partout ailleurs sur le web.
+   *
+   * La teinte vient de l'encre, seul vert franc de la gamme : l'ardoise, qui
+   * en a l'air, est en réalité un turquoise (190°) et non un vert (158°). La
+   * clarté monte de 24,6 % à 56 %, la teinte ne bouge pas d'un degré. Seule
+   * la chroma s'écarte de l'encre — 0,015 à 0,10 — parce qu'un point de
+   * statut à chroma quasi nulle serait un point gris, qui ne signale rien ;
+   * 0,10 reste sous l'or (0,119) et au-dessus de l'ocre (0,081), donc dans
+   * l'amplitude que la gamme s'autorise déjà.
+   *
+   * Un seul ton, sans rôle de surface : celui-ci est pris dans la bande où
+   * le contraste passe le seuil des éléments non textuels des deux côtés —
+   * 3,6:1 sur la pastille claire comme sur la sombre.
+   */
+  --brand-actif: oklch(56% 0.1 157.69); /* encre éclaircie — service en ligne */
 
   /*
    * Encre du logotype, héritée par tout le sous-arbre. Le logotype ne choisit
