@@ -67,7 +67,7 @@ export function Partners() {
 					<h2 className="mt-4 text-balance font-heading text-3xl font-semibold tracking-tight text-background md:text-5xl">
 						Faites revenir vos clients, sans changer votre caisse
 					</h2>
-					<p className="mt-5 text-sm leading-relaxed text-background/75 md:text-base">
+					<p className="mt-5 text-sm leading-relaxed text-justify hyphens-auto text-background/75 md:text-base">
 						Créer un programme de fidélité ne devrait pas demander un
 						développement informatique ni un budget publicitaire. Sur Mada
 						Privilèges, vous configurez le vôtre et vous l&apos;ouvrez à vos
@@ -98,7 +98,7 @@ export function Partners() {
 								<h3 className="font-heading text-lg font-semibold tracking-tight text-background">
 									{benefit.title}
 								</h3>
-								<p className="mt-2 text-sm leading-relaxed text-background/70">
+								<p className="mt-2 text-sm leading-relaxed text-justify hyphens-auto text-background/70">
 									{benefit.description}
 								</p>
 							</div>
@@ -119,7 +119,7 @@ export function Partners() {
 						{platformLabels.partnerRegister}
 						<ArrowRightIcon data-icon="inline-end" />
 					</Button>
-					<p className="max-w-md text-xs leading-relaxed text-background/60">
+					<p className="max-w-md text-xs leading-relaxed text-justify hyphens-auto text-background/60">
 						Création du programme en autonomie. Notre équipe à Antananarivo
 						vous accompagne si vous le souhaitez.
 					</p>

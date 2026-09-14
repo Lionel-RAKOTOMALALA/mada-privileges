@@ -48,7 +48,7 @@ export function ContactForm() {
 				<h3 className="font-heading text-xl font-semibold tracking-tight text-foreground">
 					Demande envoyée
 				</h3>
-				<p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
+				<p className="max-w-sm text-sm leading-relaxed text-justify hyphens-auto text-muted-foreground">
 					{state.message}
 				</p>
 			</div>

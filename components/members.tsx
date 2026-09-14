@@ -62,7 +62,7 @@ export function Members() {
 							<h3 className="font-heading text-lg font-semibold tracking-tight text-foreground">
 								{step.title}
 							</h3>
-							<p className="text-sm leading-relaxed text-muted-foreground">
+							<p className="text-sm leading-relaxed text-justify hyphens-auto text-muted-foreground">
 								{step.description}
 							</p>
 						</li>

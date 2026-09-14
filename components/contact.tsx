@@ -74,7 +74,7 @@ export function Contact() {
 								Une question ?{" "}
 								<span className="text-surface-accent">Écrivez-nous.</span>
 							</h2>
-							<p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground md:text-base">
+							<p className="mt-4 max-w-sm text-sm leading-relaxed text-justify hyphens-auto text-muted-foreground md:text-base">
 								Notre équipe est basée à Antananarivo et répond sous 48
 								heures ouvrées.
 							</p>

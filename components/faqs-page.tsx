@@ -37,7 +37,7 @@ export function FaqsSection() {
                 <AccordionTrigger className="py-4 font-medium hover:no-underline focus-visible:ring-ring">
                   {item.title}
                 </AccordionTrigger>
-                <AccordionContent className="pb-4 text-muted-foreground">
+                <AccordionContent className="pb-4 text-justify hyphens-auto text-muted-foreground">
                   {highlightMP(item.content)}
                 </AccordionContent>
               </AccordionItem>

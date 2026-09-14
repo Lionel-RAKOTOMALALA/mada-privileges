@@ -17,7 +17,7 @@ export function About() {
 					</h2>
 				</div>
 				<div data-animate="block">
-					<p className="text-sm leading-relaxed text-muted-foreground md:text-base">
+					<p className="text-sm leading-relaxed text-justify hyphens-auto text-muted-foreground md:text-base">
 						<MP /> est conçue et opérée par <EDS />, cabinet de
 						conseil et d&apos;ingénierie numérique établi à Antananarivo et
 						actif dans plusieurs pays d&apos;Afrique subsaharienne. Les

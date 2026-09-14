@@ -51,7 +51,7 @@ export function CardFormats() {
 					<h2 className="text-balance font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
 						Quatre façons de récompenser la fidélité
 					</h2>
-					<p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
+					<p className="mt-4 text-sm leading-relaxed text-justify hyphens-auto text-muted-foreground md:text-base">
 						Chaque commerçant choisit le format qui correspond à son
 						activité. En tant que membre, vous les retrouvez tous dans le
 						même portefeuille.
@@ -71,11 +71,11 @@ export function CardFormats() {
 							<h3 className="font-heading text-lg font-semibold tracking-tight text-foreground">
 								{format.name}
 							</h3>
-							<p className="text-sm leading-relaxed text-muted-foreground">
+							<p className="text-sm leading-relaxed text-justify hyphens-auto text-muted-foreground">
 								{format.principle}
 							</p>
 							{/* L'exemple est cité, pas confondu avec le principe. */}
-							<p className="mt-auto border-l-2 border-surface-accent pl-3 text-sm leading-relaxed text-muted-foreground italic">
+							<p className="mt-auto border-l-2 border-surface-accent pl-3 text-sm leading-relaxed text-justify hyphens-auto text-muted-foreground italic">
 								{format.example}
 							</p>
 						</li>

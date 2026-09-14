@@ -50,7 +50,7 @@ export function Programme() {
 					*/}
 					<div className="grid gap-10 py-10 md:grid-cols-3 md:gap-8">
 						<p
-							className="text-sm leading-relaxed text-muted-foreground md:text-base"
+							className="text-sm leading-relaxed text-justify hyphens-auto text-muted-foreground md:text-base"
 							data-animate="card"
 						>
 							La carte cartonnée qu&apos;on tamponne à chaque passage, et
@@ -58,14 +58,14 @@ export function Programme() {
 							chose, en numérique.
 						</p>
 						<p
-							className="text-sm leading-relaxed text-muted-foreground md:text-base"
+							className="text-sm leading-relaxed text-justify hyphens-auto text-muted-foreground md:text-base"
 							data-animate="card"
 						>
 							Chaque commerçant crée son propre programme et choisit sa
 							mécanique : points, tampons, bon ou séances prépayées.
 						</p>
 						<p
-							className="text-sm leading-relaxed text-muted-foreground md:text-base"
+							className="text-sm leading-relaxed text-justify hyphens-auto text-muted-foreground md:text-base"
 							data-animate="card"
 						>
 							Vous récupérez ses cartes en scannant son QR code. Chaque

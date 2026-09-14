@@ -18,7 +18,8 @@ import { cn } from "@/lib/utils";
  */
 
 /** Corps de texte commun — une seule définition, pour que les trois pages aient la même voix. */
-const BODY = "text-sm leading-relaxed text-muted-foreground md:text-[15px]";
+const BODY =
+	"text-sm leading-relaxed text-justify hyphens-auto text-muted-foreground md:text-[15px]";
 
 export function DocTitle({
 	title,

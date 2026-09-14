@@ -105,7 +105,7 @@ export function WhereToUse() {
 					<h2 className="text-balance font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
 						Où l&apos;utiliser
 					</h2>
-					<p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
+					<p className="mt-4 text-sm leading-relaxed text-justify hyphens-auto text-muted-foreground md:text-base">
 						Le réseau s&apos;étend à Antananarivo, Toamasina, Nosy Be,
 						Mahajanga et Fianarantsoa, et s&apos;enrichit chaque mois.
 					</p>
@@ -164,7 +164,7 @@ export function WhereToUse() {
 									<h3 className="font-heading text-lg font-semibold tracking-tight text-foreground">
 										{sector.name}
 									</h3>
-									<p className="text-sm leading-relaxed text-muted-foreground">
+									<p className="text-sm leading-relaxed text-justify hyphens-auto text-muted-foreground">
 										{sector.detail}
 									</p>
 								</div>
