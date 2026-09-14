@@ -21,6 +21,14 @@ export const EDITOR = {
 	/** Mentions légales, « Éditeur du site ». */
 	quality:
 		"cabinet de conseil et d'ingénierie numérique de droit malgache, propriétaire de la marque Mada Privilèges",
+	/** Société à responsabilité limitée unipersonnelle. Fourni le 14 septembre 2026. */
+	legalForm: "SARLU",
+	/*
+	 * Montant en ariary. Les espaces sont insécables — dans la colonne étroite
+	 * du tableau sur téléphone, une coupure entre les groupes de chiffres
+	 * donnerait à lire deux nombres au lieu d'un.
+	 */
+	capital: "5 000 000 Ar",
 	address: "Lot II M 92 Antsakaviro-Ambodirotra, Antananarivo, Madagascar",
 	city: "Antananarivo",
 	rcs: "2025B101473",
