@@ -22,23 +22,28 @@
  * L'union rend la liste close : ajouter un secteur sans déposer l'image
  * correspondante ne compile pas, au lieu de laisser un trou dans la grille.
  *
- * Photographies : Unsplash, licence libre d'usage commercial sans obligation
- * d'attribution. Les auteurs sont crédités ci-dessous si l'on souhaite tout
- * de même les mentionner, et les sources permettent de retrouver l'original
- * pour le remplacer par une photo malgache le jour venu.
+ * Provenance des photographies. Deux origines depuis le remplacement du
+ * 14 septembre 2026 — ne pas recréditer en bloc.
+ *
+ * Fournies par le client, provenance et droits à confirmer avant mise en
+ * ligne : le site est commercial, une image reprise sans licence y engage
+ * l'éditeur.
+ *
+ *  hotellerie    · maison · sante · services
+ *
+ * Unsplash, licence libre d'usage commercial sans obligation d'attribution.
+ * Les auteurs sont cités si l'on souhaite tout de même les mentionner, et les
+ * sources permettent de retrouver l'original — ces huit-là restent des images
+ * génériques, à remplacer par des prises de vue malgaches le jour venu.
  *
  *  restauration  Jordan González          unsplash.com/photos/TpDMcAwWGaU
- *  hotellerie    Yevhenii Deshko          unsplash.com/photos/5Uk-o-1GF1o
- *  sante         Nathaniel Yeo            unsplash.com/photos/TkBdibN9ta0
  *  beaute        Brooke Cagle             unsplash.com/photos/cFm3sVTnV9M
  *  formation     Nathan Cima              unsplash.com/photos/zXgVSgnfjSs
  *  automobile    Kato Blackmore           unsplash.com/photos/M7Jf2VvXWlM
- *  maison        Spacejoy                 unsplash.com/photos/IH7wPsjwomc
  *  loisirs       Curated Lifestyle        unsplash.com/photos/qZ5lPCPvdXE
  *  mode          Clark Street Mercantile  unsplash.com/photos/P3pI6xzovu0
  *  commerces     Gemma C                  unsplash.com/photos/OFgmFGm7tqk
  *  finance       Planet Volumes           unsplash.com/photos/lSc6TfvNFo8
- *  services      Fleur                    unsplash.com/photos/JBvnJmBOGPs
  */
 export type SectorSlug =
 	| "restauration"
