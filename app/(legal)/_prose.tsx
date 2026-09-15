@@ -138,6 +138,11 @@ export function Bullets({ items }: { items: React.ReactNode[] }) {
  * Tableau de données. Le conteneur défile horizontalement pour lui seul :
  * sur un téléphone, un tableau de trois colonnes ne doit pas faire déborder
  * la page entière.
+ *
+ * `hyphens-none` annule la césure héritée du corps de texte. Elle sert la
+ * prose justifiée, mais pas ici : les cellules tiennent en un ou deux mots
+ * dans une colonne étroite, et la césure y produisait « Télé-phone » ou
+ * « publica-tion ». Un tableau se lit en diagonale, jamais au fil du texte.
  */
 export function Table({
 	head,
@@ -148,7 +153,7 @@ export function Table({
 }) {
 	return (
 		<div className="overflow-x-auto rounded-xl border border-border">
-			<table className="w-full border-collapse text-left text-sm">
+			<table className="w-full border-collapse text-left text-sm hyphens-none">
 				<thead>
 					<tr className="bg-muted/60">
 						{head.map((cell) => (
