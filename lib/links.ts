@@ -9,21 +9,15 @@
  * elles pointent vers l'application, qui n'a pas vocation à migrer. Aucune
  * redirection entre les deux domaines.
  *
- * Par défaut elles s'ouvrent dans le même onglet : le visiteur part y
- * accomplir une action, il n'a pas à revenir en arrière.
+ * Elles s'ouvrent toutes dans un nouvel onglet : le site vitrine reste ouvert
+ * derrière le visiteur, qui peut y revenir sans tout recharger — demandé le
+ * 16 septembre 2026, d'abord pour un bouton précis (la navbar), puis étendu
+ * de proche en proche à chacun de ces liens, partout où il apparaît.
  *
- * Exception, demandée le 16 septembre 2026 : `register`, `login` et
- * `partnerRegister` ouvrent systématiquement un nouvel onglet, partout où ils
- * apparaissent (navbar, accroche, rubrique membres, rubrique Enseignes, FAQ,
- * pied de page) — le site vitrine reste ouvert derrière le visiteur, qui peut
- * y revenir sans tout recharger. C'est la mesure la plus large qui a fini par
- * s'imposer : ce qui n'était d'abord qu'un bouton précis (la navbar), puis
- * une rubrique (Enseignes), s'est étendu de proche en proche à ces trois
- * liens partout où ils se trouvent — inutile de la restreindre à nouveau au
- * prochain ajout d'un de ces trois boutons ailleurs sur le site.
- *
- * `programs` n'a pas cette exception : voir les programmes n'est pas une
- * action qui engage, rien ne justifie d'y garder le site vitrine ouvert.
+ * D'où la règle pour tout nouvel emplacement de `register`, `login`,
+ * `partnerRegister` ou `programs` : `target="_blank"` et
+ * `rel="noopener noreferrer"` sur l'ancre, sans exception à re-décider —
+ * l'exception, ici, s'est déjà généralisée à la règle.
  */
 const PLATFORM = "https://madaprivileges.mg";
 
