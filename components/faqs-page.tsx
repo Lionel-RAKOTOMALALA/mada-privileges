@@ -62,7 +62,7 @@ export function FaqsSection() {
           <Button
             data-outbound="register"
             nativeButton={false}
-            render={<a href={platformLinks.register} />}
+            render={<a href={platformLinks.register} rel="noopener noreferrer" target="_blank" />}
             size="lg"
           >
             {platformLabels.register}

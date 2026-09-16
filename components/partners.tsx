@@ -122,11 +122,23 @@ export function Partners() {
 						inversée, `outline` poserait un aplat clair qui pèserait plus que
 						le bouton principal. `border-background/25` est l'idiome que le
 						pied de page emploie déjà pour ses actions secondaires.
+
+						« Inscrire mon enseigne » ouvre un nouvel onglet — comme partout
+						où ce lien apparaît, cf. lib/links.ts. Le téléchargement de la
+						plaquette n'a pas besoin de la même précaution : l'attribut
+						`download` garde déjà le visiteur sur la page.
 					*/}
 					<div className="flex flex-wrap items-center gap-3">
 						<Button
 							nativeButton={false}
-							render={<a data-outbound="partnerRegister" href={platformLinks.partnerRegister} />}
+							render={
+								<a
+									data-outbound="partnerRegister"
+									href={platformLinks.partnerRegister}
+									rel="noopener noreferrer"
+									target="_blank"
+								/>
+							}
 							size="lg"
 							variant="secondary"
 						>

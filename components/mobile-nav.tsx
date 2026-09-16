@@ -142,12 +142,23 @@ export function MobileNav({}: MobileNavProps) {
 										initial="hidden"
 										variants={rowVariants(navLinks.length)}
 									>
-										{/* Vers la plateforme, pas vers une ancre interne (§ 4). */}
+										{/*
+											Vers la plateforme, pas vers une ancre interne
+											(§ 4). Nouvel onglet, comme leurs équivalents du
+											bureau (header.tsx) : le site vitrine reste ouvert
+											derrière, `close` referme seulement ce menu.
+										*/}
 										<Button
 											className="w-full"
 											nativeButton={false}
 											render={
-												<a data-outbound="register" href={platformLinks.register} onClick={close} />
+												<a
+													data-outbound="register"
+													href={platformLinks.register}
+													onClick={close}
+													rel="noopener noreferrer"
+													target="_blank"
+												/>
 											}
 											size="lg"
 											variant="default"
@@ -159,7 +170,13 @@ export function MobileNav({}: MobileNavProps) {
 											className="mt-3 w-full"
 											nativeButton={false}
 											render={
-												<a data-outbound="login" href={platformLinks.login} onClick={close} />
+												<a
+													data-outbound="login"
+													href={platformLinks.login}
+													onClick={close}
+													rel="noopener noreferrer"
+													target="_blank"
+												/>
 											}
 											size="lg"
 											variant="outline"

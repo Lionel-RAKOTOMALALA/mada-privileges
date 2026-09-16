@@ -80,15 +80,17 @@ export function Header() {
           </div>
           {/*
             Les deux boutons quittent le site vitrine pour la plateforme
-            (§ 4). Même onglet : le visiteur part y accomplir une action.
+            (§ 4). Nouvel onglet, par exception à la règle par défaut de
+            lib/links.ts : depuis la barre de navigation, le visiteur garde
+            le site vitrine ouvert derrière lui plutôt que de le quitter.
           */}
-                                                                                                                                                                                                                                          {/* § 3 : « Se connecter » en secondaire, « Commencer gratuitement »
+          {/* § 3 : « Se connecter » en secondaire, « Commencer gratuitement »
               en principal — les deux styles sont fixes, la hiérarchie entre
               les deux actions ne dépend pas du défilement. */}
           <Button
             data-outbound="login"
             nativeButton={false}
-            render={<a href={platformLinks.login} />}
+            render={<a href={platformLinks.login} rel="noopener noreferrer" target="_blank" />}
             size="sm"
             variant="secondary"
           >
@@ -97,7 +99,7 @@ export function Header() {
           <Button
             data-outbound="register"
             nativeButton={false}
-            render={<a href={platformLinks.register} />}
+            render={<a href={platformLinks.register} rel="noopener noreferrer" target="_blank" />}
             size="sm"
             variant="default"
           >
@@ -114,7 +116,7 @@ export function Header() {
           <Button
             data-outbound="register"
             nativeButton={false}
-            render={<a href={platformLinks.register} />}
+            render={<a href={platformLinks.register} rel="noopener noreferrer" target="_blank" />}
             size="sm"
             variant="default"
           >

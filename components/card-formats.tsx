@@ -85,7 +85,14 @@ export function CardFormats() {
 				<div className="mt-10" data-animate="block">
 					<Button
 						nativeButton={false}
-						render={<a data-outbound="programs" href={platformLinks.programs} />}
+						render={
+						<a
+							data-outbound="programs"
+							href={platformLinks.programs}
+							rel="noopener noreferrer"
+							target="_blank"
+						/>
+					}
 						size="lg"
 						variant="outline"
 					>
