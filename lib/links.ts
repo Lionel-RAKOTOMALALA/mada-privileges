@@ -47,10 +47,12 @@ export const platformLabels = {
  *
  * Le § 5.11 ne les réintègre qu'une fois les comptes réellement ouverts : ne
  * rien ajouter ici tant qu'un compte n'existe pas. X/Twitter reste donc
- * absent — seul Instagram est ouvert à ce jour.
+ * absent — Instagram et LinkedIn sont ouverts à ce jour.
  */
 export const socialLinks = {
 	instagram: "https://www.instagram.com/madaprivileges/",
+	/** Fourni le 17 septembre 2026. */
+	linkedin: "https://www.linkedin.com/in/mada-privil%C3%A8ges-03a293435/",
 } as const;
 
 /** Site vitrine — pages annexes. */

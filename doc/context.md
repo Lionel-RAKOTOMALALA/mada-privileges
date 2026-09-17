@@ -65,4 +65,6 @@ Antananarivo.
 Adresse postale du bureau · numéros de téléphone valides · boîte
 contact@madaprivileges.com et enregistrements SPF/DKIM · photos et logos
 partenaires · informations juridiques des pages légales · ouverture du compte X
-(Instagram est en ligne : https://www.instagram.com/madaprivileges/).
+(Instagram et LinkedIn sont en ligne :
+https://www.instagram.com/madaprivileges/ ·
+https://www.linkedin.com/in/mada-privilèges-03a293435/).
