@@ -24,7 +24,7 @@ const formats = [
 		principle:
 			"Un tampon par passage. Au seuil atteint, la récompense est due.",
 		example:
-			"La Carte Beauté Amazones : un tampon par séance, et un soin bien-être offert à la dixième, dans l'institut de votre choix.",
+			"La Carte Beauté de l'Atelier Métamorphose : un tampon par séance, et un soin bien-être offert à la dixième, dans l'institut de votre choix.",
 	},
 	{
 		icon: <TicketPercentIcon />,

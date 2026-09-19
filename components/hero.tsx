@@ -25,7 +25,7 @@ const walletCards = [
 		reward: "Le 10ᵉ repas offert",
 	},
 	{
-		merchant: "Institut Amazones",
+		merchant: "Atelier Métamorphose",
 		sector: "Beauté et bien-être",
 		mechanic: "Carte à tampons",
 		progress: 4,
