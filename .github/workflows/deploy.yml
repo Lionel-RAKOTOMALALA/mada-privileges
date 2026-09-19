@@ -1,0 +1,78 @@
+name: Déploiement
+
+# Chaque poussée sur `main` reconstruit le site et le dépose sur l'hébergement.
+# `workflow_dispatch` ajoute un bouton « Run workflow » dans l'onglet Actions,
+# utile pour redéployer sans avoir à inventer un commit.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Un seul déploiement à la fois. Deux téléversements FTP simultanés laisseraient
+# le site dans un état mi-ancien mi-nouveau.
+concurrency:
+  group: deploiement
+  cancel-in-progress: false
+
+jobs:
+  deployer:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # Next 16 exige Node 20.9 ou plus.
+          node-version: 22
+          cache: npm
+
+      # `npm ci` installe exactement ce que fixe package-lock.json, là où
+      # `npm install` pourrait ramener des versions plus récentes et faire
+      # diverger le site déployé de celui qu'on a testé en local.
+      - run: npm ci
+
+      - run: npm run build
+
+      # Le build doit produire le point d'envoi du formulaire et le fichier de
+      # configuration Apache. Sans eux, on déposerait un site au formulaire
+      # muet et aux aperçus de partage cassés — autant s'arrêter ici.
+      - name: Vérifier l'export
+        run: |
+          test -f out/index.html || { echo "out/index.html manquant"; exit 1; }
+          test -f out/contact.php || { echo "out/contact.php manquant"; exit 1; }
+          test -f out/.htaccess || { echo "out/.htaccess manquant"; exit 1; }
+
+      - name: Téléverser sur l'hébergement
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # FTP en clair transporterait le mot de passe à découvert.
+          protocol: ftps
+          local-dir: ./out/
+          # Racine du compte FTP, et non un chemin absolu : le compte dédié
+          # créé dans cPanel est cantonné à `public_html`, il arrive donc
+          # directement au bon endroit.
+          #
+          # Ne pas utiliser ici les identifiants du compte cPanel principal :
+          # ceux-là ouvrent sur `/home/madapri1`, et le site se déploierait à
+          # côté de `mail`, `ssl` et `logs` au lieu d'aller dans `public_html`.
+          server-dir: ./
+          # L'action compare avec l'état du dernier déploiement et n'envoie que
+          # ce qui a changé — quelques fichiers au lieu de la centaine que
+          # compte l'export.
+          state-name: .deploiement-precedent.json
+          # Ce qui vit dans public_html sans venir du dépôt : les réglages PHP
+          # du compte, le dossier de validation des certificats, le journal
+          # d'erreurs. Sans cette liste, l'action les prendrait pour des
+          # fichiers en trop et les supprimerait au premier déploiement.
+          #
+          # Les lignes ci-dessous sont des motifs, pas du commentaire : un `#`
+          # glissé dans ce bloc partirait comme un motif de plus.
+          exclude: |
+            php.ini
+            .user.ini
+            .well-known/**
+            error_log

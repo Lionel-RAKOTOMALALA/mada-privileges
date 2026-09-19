@@ -1,0 +1,15 @@
+# Réglages Apache du site exporté (voir doc/deploiement-cpanel.md).
+#
+# Ce fichier part avec l'export : Next.js recopie le contenu de `public/` à la
+# racine de `out/`. Il se retrouve donc dans `public_html` au déploiement.
+
+# L'image de partage sort du build nommée « opengraph-image », sans extension —
+# c'est la convention de Next.js, et le nom ne se change pas. Apache la
+# servirait donc comme un binaire indéterminé, et les réseaux sociaux
+# refuseraient l'aperçu. On lui redonne son type.
+<Files "opengraph-image">
+	ForceType image/png
+</Files>
+
+# La page d'erreur du site plutôt que celle d'Apache.
+ErrorDocument 404 /404.html

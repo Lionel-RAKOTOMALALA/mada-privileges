@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { sendContact } from "@/app/actions/contact";
+import { sendContact } from "@/lib/send-contact";
 import {
 	INITIAL_CONTACT_STATE,
 	PROFILES,

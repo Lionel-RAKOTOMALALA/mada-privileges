@@ -16,6 +16,14 @@ export const alt =
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+/**
+ * L'image est une route, et l'export statique n'en accepte que de figées :
+ * sans cette déclaration, le build s'arrête. Elle ne coûte rien ici — le
+ * visuel ne dépend d'aucune donnée de requête, il est dessiné une fois au
+ * build à partir du logotype de la charte.
+ */
+export const dynamic = "force-static";
+
 export default async function Image() {
 	// Le tracé du logotype vient du SVG extrait de la charte, pas d'un redessin.
 	const logo = await readFile(
